@@ -1,7 +1,7 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/angular-client/node_modules
+/node_modules
 /express-server/node_modules
 
 # testing
