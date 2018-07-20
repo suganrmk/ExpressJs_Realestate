@@ -1,0 +1,69 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+            <a class="navbar-brand" routerLink="/">PokeInn</a>
+        </div>
+        <div class="searchInputHeader">
+            <i class="fa fa-search"></i>
+            <input type="text" [(ngModel)]="CitySearch" (FormatAddress)="getFormattedAddress($event)" class="citySearch" name="City" id="City" required [options]='options' (setAddress)="getAddress($event)" (street_number)='street_number=$event' (street)='street=$event'
+                (city)='city=$event' (state)='state=$event' (district)='district=$event' (country)='country=$event' (postal_code)='postal_code=$event' (lat)='lat=$event' (lng)='lng=$event' (adr_address)='adr_address=$event' (name)='name=$event' (place_id)='place_id=$event'
+                (types)='types=$event' (url)='url=$event' (utc_offset)='utc_offset=$event' (vicinity)='vicinity=$event' (photos)='photos=$event' (CountryCodes)='CountryCodes=$event' id="autocomplete" angularGooglePlace/>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="navRight">
+                <li routerLinkActive="active"><a routerLink="/Becomehost">Add a new listing</a></li>
+                <li routerLinkActive="active">
+                    <div class="dropdown">
+                        <a class="" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Host
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                            <a class="dropdown-item" routerLink="/user/listing">Manage Listing</a>
+                            <a class="dropdown-item" routerLink="/Becomehost">List your space</a>
+                            <a class="dropdown-item" routerLink="/user/reservation">Your Reservation</a>
+                            <a class="dropdown-item" routerLink="/user/account/transcation">Transaction History</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li routerLinkActive="active"><a routerLink="/user">Saved</a></li>
+                <li routerLinkActive="active"><a routerLink="/user/usertrips">Trips</a></li>
+                <li routerLinkActive="active"><a routerLink="/user/inbox">Messages</a></li>
+                <li routerLinkActive="active"><a routerLink="/admin">Help</a></li>
+
+
+                <li routerLinkActive="active">
+                    <div class="dropdown">
+                        <button class="profilemenu" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               
+                   <img [src]="userImg">
+                    </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" routerLink="/user/dashboard">Dashboard</a>
+                            <a class="dropdown-item" routerLink="/user/profile/editprofile">Edit Profile</a>
+                            <a class="dropdown-item" routerLink="/user/account">Account Setting</a>
+                            <a class="dropdown-item" routerLink="/wishlist">Account Setting</a>
+
+                            <a class="dropdown-item" (click)="logout()" href="javascript:void(0)">Log out</a>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+                <!-- <li routerLinkActive="active"> <a routerLink="/admin">Sign Up</a></li>
+                <li routerLinkActive="active"> <a routerLink="/login">Log In</a></li> -->
+
+                <!-- <app-cart class="pull-right"></app-cart> -->
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>

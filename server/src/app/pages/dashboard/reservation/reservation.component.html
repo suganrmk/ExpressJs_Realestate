@@ -1,0 +1,106 @@
+<!--//////////////////////////////////////////////////account body starts///////////////////-->
+<section class="dashboardbg">
+    <div class="dashbrdbody">
+        <div class="dashboardcontainer">
+            <div class="row">
+                <div class="col-sm-3 col-xs-12">
+
+                    <!--leftpannel-->
+                    <div class="leftpanels">
+
+
+                        <ul class="paylisttext">
+                            <li routerLinkActive="active"><a routerLink="/user/listing"> Manage Listings</a></li>
+                            <li><span class="hedlines"><i class="fa fa-circle"></i>Your Reservations</span></li>
+                        </ul>
+                    </div>
+                    <!--leftpannel-->
+
+
+                    <!--leftpannel-->
+                    <app-profilecard></app-profilecard>
+                    <!--leftpannel-->
+
+
+
+
+                </div>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="rigthdivsec nextri prevtri">
+
+                        <!--rightpannel-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading ">
+                                <i class="imgcal"><img src="images/ss.png"> </i> Your Reservations
+                            </div>
+                            <div class="panel-body pad0">
+
+
+
+                                <div class="table-responsive tablecustom datedivcolor">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 19%;">user</th>
+                                                <th>Property details</th>
+
+                                                <th>Payment</th>
+                                                <th>Approval</th>
+                                                <th>Detail</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr *ngFor="let trip of trips; let i = index">
+                                                <td>
+                                                    <figure class="filines">
+                                                        <img src="{{trip.bookedby.common.photoUrl}}">
+                                                    </figure>
+                                                    <span class="col-md-12">{{trip.bookedby.common.firstName}}</span>
+                                                    <span class="flolerf">{{trip.createdAt | date}}</span>
+                                                </td>
+                                                <td class="nesitd">
+                                                    <a href="#">{{trip.productId.Description.Title}}</a>
+                                                    <span>{{trip.bookedfrom | date}} {{trip.bookedto | date}}  Booking #: {{trip.bookingId}}</span>
+                                                </td>
+
+                                                <td>{{trip.payment}}</td>
+                                                <td>{{trip.hostapproval}}</td>
+                                                <td>
+                                                    ${{trip.pricing.totalprice}}
+                                                    <span (click)="messagehistory(trip.bookingId)">Message History</span>
+                                                    <span *ngIf="trip.payment === 'completed'" [routerLink]="['/user/itinerary/' + trip.bookingId]">View Itinerary</span>
+                                                    <span *ngIf="trip.payment === 'completed'" [routerLink]="['/receipt/' + trip.bookingId]">view receipt</span>
+
+                                                </td>
+                                                <!-- <td>
+                                                    <div *ngIf="trip.hostapproval === 'pending'">
+                                                        <button type="button" (click)="hostapproval('approve', trip._id , i)" class="listdbtn blu-nn"><i class="mdi mdi-check"></i>Approve</button>
+                                                        <button type="button" (click)="hostapproval('reject',  trip._id , i)" class="listdbtn blu-nn"><i class="mdi mdi-cross"></i>Decline</button>
+
+                                                    </div>
+                                                    <div *ngIf="trip.hostapproval !== 'pending'">{{trip.hostapproval}}</div>
+                                                </td> -->
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <!--rightpannel-->
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--//////////////////////////////////////////////////account body ends///////////////////-->

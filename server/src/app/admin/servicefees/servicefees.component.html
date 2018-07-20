@@ -1,0 +1,46 @@
+<p-panel>
+    <p-header> {{pagetitle}}
+    </p-header>
+
+
+
+    <div class="sitesettings">
+        <form (ngSubmit)="updateservicefees(sitesettings);" class="half" #sitesettings="ngForm">
+
+            <div class="form-group">
+                <label for="logo">Guest Fee Type</label>
+                <p-radioButton name="guestfeetype" value="Fixed" label="Fixed Price" [(ngModel)]="site.guestfeetype" #guestfeetype="ngModel" id="guestfeetype" required></p-radioButton>
+                <p-radioButton name="guestfeetype" value="Percentage" label="Percentage" [(ngModel)]="site.guestfeetype" #guestfeetype="ngModel" id="guestfeetype2" required></p-radioButton>
+
+            </div>
+
+            <div class="form-group">
+                <label for="name">Guest Service Fee</label>
+                <input type="text" [(ngModel)]="site.guestservicefee" #guestservicefee="ngModel" class="form-control" name="guestservicefee" id="guestservicefee" required />
+            </div>
+            <div class="form-group">
+                <label for="logo">Host Fee Type</label>
+                <p-radioButton name="hostfeetype" value="Fixed" label="Fixed Price" [(ngModel)]="site.hostfeetype" #hostfeetype="ngModel" id="hostfeetype" required></p-radioButton>
+                <p-radioButton name="hostfeetype" value="Percentage" label="Percentage" [(ngModel)]="site.hostfeetype" #hostfeetype="ngModel" id="hostfeetype2" required></p-radioButton>
+
+            </div>
+
+            <div class="form-group">
+                <label for="name">Host Service Fee</label>
+                <input type="text" [(ngModel)]="site.hostservicefee" #hostservicefee="ngModel" class="form-control" name="hostservicefee" id="hostservicefee" required />
+            </div>
+
+            <div *ngIf="currenylist " class="form-group">
+                <label for="name">Currency</label>
+                <p-dropdown [options]="currenylist" [(ngModel)]="site.currency" #currency="ngModel" name="currency" id="currency" required></p-dropdown>
+            </div>
+
+
+            <button type="button" *ngIf="!sitesettings.form.valid" [disabled]="!sitesettings.form.valid" class="btn btn-success btn-block">Submit</button>
+
+            <button type="submit" *ngIf="sitesettings.form.valid" [disabled]="!sitesettings.form.valid" class="btn btn-success btn-block">Submit</button>
+        </form>
+    </div>
+
+
+</p-panel>

@@ -1,0 +1,46 @@
+<p-panel>
+    <p-header> <span class="panlTitle">Slider Management</span>
+        <button (click)="showDialog()" class="btn btn-xs btn-primary pull-right">
+                   <i class="fa fa-plus"></i> Add Slider  </button>
+    </p-header>
+    <p-dataTable class="" selectionMode="single" [(selection)]="selectedRow" [value]="sliderData">
+        <p-column field="sliderImage" header="Banner Image" [style]="{'width':'120px'}">
+            <ng-template let-col let-data="rowData" pTemplate="body">
+                <img width="100px" src="http://localhost:4000/{{data[col.field].filename}}">
+            </ng-template>
+        </p-column>
+        <p-column field="title" header="Title"></p-column>
+        <p-column field="subtitle" header="Sub Title"></p-column>
+        <p-column field="subtitle" header="Action" [style]="{'width':'90px'}">
+            <ng-template let-col let-data="rowData" pTemplate="body">
+                <div class="tablebtn-holder">
+                    <button type="button" (click)="showDialog(data)" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></button>
+                    <button type="button" (click)="onDeleteSlider(data)" class="btn btn-warning btn-xs"><i class="fa fa-trash-o"></i></button>
+                </div>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+</p-panel>
+
+<p-dialog [(visible)]="display">
+    <p-header>
+        Slider
+    </p-header>
+    <form (ngSubmit)="onSubmitSlider(sliderForm);" #sliderForm="ngForm">
+        <div class="form-group bannerGroup">
+            <label for="sliderImage">Banner Image:</label>
+            <p-fileUpload name="myfile[]" accept="image/*" (onUpload)="onBasicUpload($event)" url="http://localhost:4000/route/upload"></p-fileUpload>
+            <img width="100px" *ngIf="sliders.sliderImage" src="http://localhost:4000/{{sliders.sliderImage.filename}}" />
+            <input type="text" [(ngModel)]="sliders.sliderImage" #sliderImage="ngModel" class="form-control hide" name="sliderImage" id="sliderImage" required />
+        </div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" [(ngModel)]="sliders.title" #title="ngModel" class="form-control" name="title" id="title" required />
+        </div>
+        <div class="form-group">
+            <label for="subtitle">Sub Title:</label>
+            <input type="text" [(ngModel)]="sliders.subtitle" #subtitle="ngModel" class="form-control" name="subtitle" id="subtitle" required />
+        </div>
+        <button type="submit" [disabled]="!sliderForm.form.valid" class="btn btn-success btn-block">Submit</button>
+    </form>
+</p-dialog>

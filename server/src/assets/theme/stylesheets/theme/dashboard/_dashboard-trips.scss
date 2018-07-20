@@ -1,0 +1,57 @@
+.filines {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    height: 30px;
+    overflow: hidden;
+    width: 30px;
+    >img {
+        width: 100%;
+    }
+}
+
+.nesitd a {
+    display: flex;
+    width: 100%;
+}
+
+.righconle {
+    display: inline-block;
+    width: 201px;
+    >input[type="text"] {
+        background: #d2d0d099;
+        border: 1px solid #cecbcb;
+        height: 35px;
+        padding: 0 9px;
+        width: 100%;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCS…yM67pmXWBg0meDA9bxdYOBSWuhT/+vKd9wP7MVGxVg6RctJPci61nzWAAAAABJRU5ErkJggg==);
+        background-position: 96% center;
+        background-repeat: no-repeat;
+        background-size: 15px auto;
+    }
+}
+
+.leftconle {
+    width: 90%;
+    /* fallback if needed */
+    width: calc(100% - 205px);
+    display: inline-block;
+    text-align: $ltr;
+    padding: 14px 0;
+}
+
+.tablecustom a.pybtn {
+    color: #e74848
+}
+
+.prevtri .datedivcolor.tablecustom tbody>tr>td {
+    color: $text
+}
+
+.nextri .datedivcolor.tablecustom tbody>tr>td {
+    color: $text
+}
+
+.nextri .datedivcolor.tablecustom tbody>tr>td {
+    color: $text
+}

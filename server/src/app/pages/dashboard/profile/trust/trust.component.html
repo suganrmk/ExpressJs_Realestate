@@ -1,0 +1,52 @@
+<!--rightpannel-->
+<div class="panel panel-default">
+    <div class="panel-heading more-verify"><i></i><span>Add More Verifications</span></div>
+    <div class="panel-body">
+        <div class="verification-account">
+            <ul>
+                <!-- <li>
+                    <div class="verify-account-type">
+                        <h3>
+                            <p>Facebook</p>
+                            <span>Sign in with Facebook and discover your trusted connections to hosts and guests all over the world.</span>
+                        </h3>
+                        <a href="#" class="disconnect">Disconnect</a>
+                    </div>
+                </li> -->
+                <li>
+                    <div class="verify-account-type">
+                        <h3>
+                            <p>Google</p>
+                            <span>Connect your account to your Google account for simplicity and ease.</span>
+                        </h3>
+                        <a *ngIf="userVerfication.google" (click)="disconnect('google')" class="disconnect">Disconnect</a>
+                        <a *ngIf="!userVerfication.google" (click)="verifygoogle()" class="connect">Connect</a>
+
+                    </div>
+                </li>
+                <!-- <li>
+                    <div class="verify-account-type">
+                        <h3>
+                            <p>Linkedin</p>
+                            <span>Create a link to your professional life by connecting your account and LinkedIn accounts.</span>
+                        </h3>
+                        <a href="#" class="connect">Disconnect</a>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!--rightpannel-->
+
+<div class="panel panel-default nobg">
+    <div class="panel-body">
+        <div class="centrinthbtn">
+            <a class="borderbtn Discardchs" href="#">Discard Changes</a>
+            <a class="btn svshg" href="#">Save Changes</a>
+
+        </div>
+
+    </div>
+</div>

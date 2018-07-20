@@ -1,0 +1,121 @@
+<div *ngIf="booking" class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            HireSpace
+                        </td>
+
+                        <td>
+                            BookingID #: {{booking.bookingId}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+        <tr class="userdetail">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Name</b> <br> {{booking.traveller.common.firstName}}
+                        </td>
+                        <td>
+                            <b>Travel Destination</b><br> {{booking.productId.Location.country}}
+                        </td>
+                        <td>
+                            <b>Duration</b><br> {{booking.bookedfrom | date}} to {{booking.bookedto | date}}
+                        </td>
+                        <td>
+                            <b>Accommodation Type</b><br>{{booking.productId.RoomType}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Accommodation Address</b>
+                            <br><span *ngIf="booking.productId.Location.street_number">{{booking.productId.Location.street_number}},</span>
+                            <br> <span *ngIf="booking.productId.Location.state">{{booking.productId.Location.state}},</span>
+                            <br> <span *ngIf="booking.productId.Location.city">{{booking.productId.Location.city}} , {{booking.productId.Location.country}}</span>
+                        </td>
+                        <td>
+                            <b>Accommodation Host</b>
+                            <br>{{booking.producthost.common.firstName}}
+                        </td>
+                        <td>
+                            <b>Check In</b>
+                            <br>{{booking.bookedfrom | date}}
+                        </td>
+                        <td>
+                            <b>Check Out</b>
+                            <br>{{booking.bookedto | date}}
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+
+
+        <tr class="heading">
+            <td>
+                Reservation Charges
+            </td>
+
+            <td>
+                Price
+            </td>
+        </tr>
+        <tr class="item">
+            <td>
+                {{booking.pricing.currency}} {{booking.pricing.baseprice}} x 3 nights
+            </td>
+
+            <td>
+                {{booking.pricing.currency}} {{booking.pricing.calculatedprice}}
+            </td>
+        </tr>
+        <tr class="item">
+            <td>
+                Cleaning Price
+            </td>
+
+            <td>
+                {{booking.pricing.currency}} {{booking.pricing.cleaningprice}}
+            </td>
+        </tr>
+
+        <tr class="item">
+            <td>
+                Service fee
+            </td>
+
+            <td>
+                {{booking.pricing.currency}} {{booking.pricing.serviceprice}}
+            </td>
+        </tr>
+
+        <tr class="item last">
+            <td>
+                Total
+            </td>
+
+            <td>
+                {{booking.pricing.currency}} {{booking.pricing.totalprice}}
+            </td>
+        </tr>
+
+        <tr class="total">
+            <td>Payment Received: Wed, May 16th, 2018</td>
+
+            <td>
+                Total: {{booking.pricing.currency}} {{booking.pricing.totalprice}}
+            </td>
+        </tr>
+    </table>
+</div>

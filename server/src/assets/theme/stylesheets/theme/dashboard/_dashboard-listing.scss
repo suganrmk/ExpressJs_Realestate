@@ -1,0 +1,151 @@
+.spcelisting{
+    @include float($ltr);
+    background:#eff6fa;
+    position:relative;
+}
+
+.swhlisting{
+    float:$ltr;
+    font-size:8px;
+    color:$text2;
+    cursor: pointer;
+    background-image:url('../images/angle.png');
+     background-position: 90% 50%;
+    @include float($ltr);
+      padding: 13px 10px;
+    background-repeat: no-repeat;
+      font-size:12px;
+      text-transform:capitalize;
+}
+.positnlistion {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #78d9ff;
+    font-size: 12px;
+    position: absolute;
+    text-align: left;
+    text-transform: capitalize;
+    top: 44px;
+    width: 100%;
+    z-index: 1;
+    display:none;
+
+    > li{@include float($ltr);  padding: 0px;border-bottom: 1px solid #ccc;
+>a{@include float($ltr);  padding: 6px 11px;}
+&:last-child{border:none}
+    }
+}
+.righconle.newdasv{
+    float:$rtl;
+    position:relative;
+    @include phone{
+        @include float($ltr);
+        margin:0 0 10px 0;
+    }
+}
+
+.valuscripting{
+    font-weight:normal;
+    color:$text;
+    font-size:12px;
+    text-transform:capitalize;
+    margin:0 0 0 10px;
+    cursor:pointer;
+}
+.finlin{
+
+.filines{float:$ltr}
+.flolerf{
+float:$ltr;  margin: 6px 0 0 4px;
+}
+
+}
+
+.pannerl-list{
+    @include float($ltr);
+
+> li{@include float($ltr); margin-bottom:15px;}
+
+} 
+
+.nwexdivs{
+    float:$ltr;
+    overflow:hidden;
+    height:86px;
+}
+
+.toptextline{ @include float($ltr);@include light;
+    color:$text; font-size:14px; }
+
+.fultext{
+    @include float($ltr);
+    color:$text2;
+    font-weight:normal;@include light;
+    font-size:11px;
+}
+
+.bluler{
+     @include float($ltr);    font-weight:normal;@include light;
+    font-size:12px;
+}
+
+.newblu{
+    color:$theme;
+}
+
+.bntlined .listdbtn{
+    border:1px solid #ccc;   font-weight:normal;@include light;
+    font-size:12px;
+    float:$rtl;
+    display:inline-block;
+    text-align:center;
+   padding: 8px 21px;
+   color:$text;
+   margin:10px 0 0 0;
+   border-radius:3px;
+   @include tablet991{
+      padding: 8px 10px;
+   }
+
+     @include phone{
+     float:$ltr;
+   }
+}
+.blu-nn i {
+    color: #48a9e7;
+    float: left;
+    font-size: 18px;
+    margin: 0 6px 0 0;
+}
+
+
+.red-nn i{
+        color: red;
+    float: left;
+    font-size: 18px;
+    margin: 0 6px 0 0;
+}
+
+.centline.pad0 {
+    border-bottom: 1px solid #eaeaea;
+    min-height: 80px;
+    padding: 0 0 11px;
+}
+
+.bntlined{
+    @include phone{
+        width:100%;
+        text-align:$ltr;
+    }
+}
+.leftconle{
+      @include phone{
+   width:100%;
+    }
+}
+
+.textcntnsd{
+    @include phone{
+        width:100%;
+        text-align:$ltr;
+    }
+}

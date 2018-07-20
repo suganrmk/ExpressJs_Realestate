@@ -1,0 +1,234 @@
+<!--//////////////////////////////////////////////////account body starts///////////////////-->
+<section class="dashboardbg">
+    <div class="dashbrdbody">
+        <div class="dashboardcontainer">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12 dashboard-left">
+                    <!--leftpannel-->
+
+                    <!--leftpannel-->
+                    <app-profilecard></app-profilecard>
+                    <!--leftpannel-->
+
+
+                    <div class="leftpanels photsect hide">
+                        <div class="tophldr">
+                            <img src="images/bashboard-img.png">
+                        </div>
+
+                        <div class="centeringprofl">
+                            <figure class="figuredivs">
+                                <img src="images/dash-profile.png">
+                            </figure>
+                            <span class="clintitle">Kevin Wood</span>
+                            <ul class="dash-social">
+                                <li>
+                                    <a href="#"><img src="images/dfb.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/dtw.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/dig.png"></a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="images/dgplus.png"></a>
+                                </li>
+                            </ul>
+                            <div class="col-xs-12 dash-link">
+                                <a class="borderbtn vewprobtn" href="profile.html">View Profile</a>
+                                <a class="borderbtn vewprobtn build-btn" href="#">Build Your Profile</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!--leftpannel-->
+                    <div class="panel panel-default quick-link">
+                        <div class="panel-heading">Quick Links</div>
+                        <div class="panel-body">
+                            <ul class="quick-link-list">
+                                <li><a routerLink="/user/listing">View/Manage Listing</a></li>
+                                <li><a routerLink="/user/reservation">Reservations</a></li>
+                                <li><a routerLink="/user/reviews">Reviews</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12 dashboard-right">
+                    <div class="rigthdivsec">
+
+                        <!--rightpannel-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading alert"><i></i><span>Alerts</span></div>
+                            <div class="panel-body">
+                                <div class="alert-body">
+                                    <span>You have 0 Alerts at this time</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--rightpannel-->
+
+
+
+                        <!--rightpannel-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading messages"><i></i><span>Messages</span><a href="#">(2)</a></div>
+                            <div class="panel-body">
+                                <div class="message-list">
+                                    <!-- <ul>
+                                        <li class="unread">
+                                            <div class="messages-inner">
+                                                <div class="messageleft">
+                                                    <span>10m ago</span>
+                                                    <div class="msg-img">
+                                                        <img src="images/review-profile.png">
+                                                        <a href="#">Joe Berry</a>
+                                                    </div>
+                                                </div>
+                                                <div class="messageright">
+                                                    <a href="#"><strong>Booking Request : EN1508568A</strong>
+                                                                            <div class="read-unread">
+                                                                            <span>Unread</span>
+                                                                            <p><i></i></p>
+                                                                            </div>
+                                                                            </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="unread">
+                                            <div class="messages-inner">
+                                                <div class="messageleft">
+                                                    <span>10m ago</span>
+                                                    <div class="msg-img">
+                                                        <img src="images/review-profile.png">
+                                                        <a href="#">Joe Berry</a>
+                                                    </div>
+                                                </div>
+                                                <div class="messageright">
+                                                    <a href="#"><strong>RE: Booking Request : EN1508568A</strong>
+                                                                            <div class="read-unread">
+                                                                            <span>Unread</span>
+                                                                            <p><i></i></p>
+                                                                            </div>
+                                                                            </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="read">
+                                            <div class="messages-inner">
+                                                <div class="messageleft">
+                                                    <span>10m ago</span>
+                                                    <div class="msg-img">
+                                                        <img src="images/review-profile.png">
+                                                        <a href="#">Joe Berry</a>
+                                                    </div>
+                                                </div>
+                                                <div class="messageright">
+                                                    <a href="#"><strong>Booking Request : EN1508568A</strong>
+                                                                            <div class="read-unread">
+                                                                            <span>read</span>
+                                                                            <p><i></i></p>
+                                                                            </div>
+                                                                            </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="read">
+                                            <div class="messages-inner">
+                                                <div class="messageleft">
+                                                    <span>10m ago</span>
+                                                    <div class="msg-img">
+                                                        <img src="images/review-profile.png">
+                                                        <a href="#">Joe Berry</a>
+                                                    </div>
+                                                </div>
+                                                <div class="messageright">
+                                                    <a href="#"><strong>Booking Request : EN1508568A</strong>
+                                                                              <div class="read-unread">
+                                                                              <span>read</span>
+                                                                              <p><i></i></p>
+                                                                              </div>
+                                                                            </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul> -->
+
+                                    <div *ngIf="messages" class="table-responsive tablecustom message">
+                                        <table class="table">
+                                            <!-- <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>From</th>
+                                                        <th>Subject</th>
+                                                        <th>Action</th>
+
+                                                    </tr>
+                                                </thead> -->
+                                            <tbody>
+                                                <tr *ngFor="let message of messages; let i = index">
+                                                    <td>
+                                                        <figure class="figlvel"><img src="{{message.from.common.photoUrl}}"></figure>
+
+                                                    </td>
+                                                    <td class="dmclr"><span class="clientname">{{message.from.common.firstName}}</span>{{message.sendDate | date}}</td>
+                                                    <td class="{{message.status}}">
+                                                        <a routerLink="/user/inbox/{{message.bookingId}}">
+                                                            <!-- {{message.subject}} -  -->
+                                                            <span class="messagecolor"> {{message.message}}</span></a>
+                                                    </td>
+
+                                                    <td *ngIf="message.bookingStatus">{{message.bookingStatus}}</td>
+
+                                                    <!-- <td>{{message.status}}</td> -->
+
+                                                    <!-- <td class="read">
+
+                                                        <button class="btn btn-xs" (click)="deleteMessage(message._id , i)">
+                                                                <i class="fa fa-remove"></i>
+                                                            </button>
+                                                        <button class="btn btn-xs" (click)="statusChange(message.status ,  message._id)">
+                                                                    <i class="fa fa-undo"></i>
+                                                                </button>
+                                                    </td> -->
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                    <a routerLink="/user/inbox" class="view-all">View All Messages</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--rightpannel-->
+                        <!--rightpannel-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading verify"><i></i><span>Verifications</span></div>
+                            <div class="panel-body">
+                                <div class="verify-body">
+                                    <ul *ngIf="verification">
+                                        <li *ngIf="verification.email"><a class="email-img"><i></i><span>Email Address</span></a></li>
+                                        <li *ngIf="verification.mobile"><a class="phone-img"><i></i><span>Phone Number</span></a></li>
+                                        <li *ngIf="verification.google"><a class="email-img"><i></i><span>Google</span></a></li>
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--rightpannel-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--//////////////////////////////////////////////////account body ends///////////////////-->

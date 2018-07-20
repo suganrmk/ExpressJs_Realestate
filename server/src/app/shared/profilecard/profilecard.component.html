@@ -1,0 +1,17 @@
+<div class="leftpanels photsect">
+    <div class="tophldr">
+        <img [src]="userData.photoUrl">
+    </div>
+
+    <div class="centeringprofl">
+        <figure class="figuredivs">
+            <img [src]="userData.photoUrl">
+        </figure>
+        <span class="clintitle">{{userData.firstName}}</span>
+        <div class="col-xs-12">
+            <a class="borderbtn vewprobtn" routerLink="/profile/{{userData._id}}">View Profile</a>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,641 @@
+.bannerHolder {
+    float: left;
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+    position: relative;
+    >img {
+        width: 100%;
+    }
+    span.viewpic {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: #fff;
+        padding: 7px 13px;
+        color: #484848;
+        border: 1px solid #d6d5d5;
+        border-radius: 4px;
+    }
+}
+
+.detailContainer {
+    max-width: 1030px;
+    margin: 0 auto;
+}
+
+.roomdetailType {
+    @include float($ltr);
+    span {
+        font-size: 12px;
+        @include semi;
+        text-transform: uppercase;
+    }
+}
+
+.detailnav {
+    @include float($ltr);
+    .dtl-menu {
+        @include float($ltr);
+        height: 51px;
+        padding: 15px 0 0 0px;
+        >li {
+            float: left;
+            >a {
+                float: $ltr;
+                @include semi;
+                font-size: 15px;
+                color: #008489;
+                margin: 0 20px 0 0;
+            }
+        }
+    }
+}
+
+.titlesection {
+    @include float($ltr);
+    padding: 30px 0 0 0;
+    >.titles {
+        float: $ltr;
+        width: 85%;
+        .pro-title {
+            font-size: 36px;
+            line-height: 41px;
+            color: #484848;
+            padding: 0 0 0px 0;
+            @include semi;
+            @include float($ltr);
+        }
+    }
+}
+
+.host-right {
+    float: $rtl;
+    width: 13%;
+    display: inline-block;
+    text-align: center;
+    >span {
+        color: #767676;
+        font-size: 17px;
+        width: 100%;
+        text-align: center;
+        float: left;
+    }
+    .userimg {
+        width: 65px;
+        height: 65px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+        >img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            float: $ltr;
+        }
+    }
+}
+
+span.pro-type {
+    @include float($ltr);
+    font-size: 16px;
+    margin: 4px 0 0 0;
+    @include light;
+}
+
+.pro-fac {
+    @include float($ltr);
+    margin: 25px 0 25px 0;
+    font-size: 15px;
+    li {
+        float: $ltr;
+        @include light;
+        font-size: 17px;
+        margin: 0 30px 0 0;
+        .fa {
+            margin: 0 3px 0 0;
+        }
+    }
+}
+
+p.prodesc {
+    float: left;
+    width: 118%;
+    color: $text;
+    line-height: 23px;
+    max-height: 166px;
+    overflow: hidden;
+}
+
+p.prodesc.showMore {
+    max-height: inherit;
+}
+
+label.readMore,
+.contacthost {
+    float: left;
+    width: 100%;
+    color: #008489;
+    font-size: 15px;
+    @include regular;
+    font-weight: normal;
+    cursor: pointer
+}
+
+.detaildescription-title {
+    float: left;
+    width: 100%;
+    color: $text;
+    margin: 15px 0 0 0;
+}
+
+label.readMore {
+    margin: 20px 0 0px 0;
+}
+
+.morehouseRule {
+    float: left;
+    width: 100%;
+    margin: 20px 0 0 0;
+    color: $text;
+}
+
+app-product-detail .mapsection p-gmap {
+    float: left;
+    width: 100%;
+    margin: 20px 0 0px 0;
+}
+
+a.contacthost {
+    margin: 0;
+}
+
+.leftdelsection {
+    font-size: 16px;
+    @include light;
+    color: $text;
+}
+
+.hostby {
+    font-size: 28px;
+    color: #484848;
+    @include float($ltr);
+    @include semi;
+}
+
+.leftsided {
+    float: left;
+    width: 80%;
+    @include light;
+    font-size: 17px;
+    .hosterplace {
+        font-size: 17px;
+        color: #484848;
+        @include float($ltr);
+        @include light;
+        margin: 0 0 50px 0;
+    }
+}
+
+.righsided {
+    float: right;
+    width: 16%;
+    figure {
+        float: left;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        height: 90px;
+        width: 90px;
+        img {
+            @include float($ltr);
+        }
+    }
+}
+
+.titlesection {
+    font-size: 16px;
+    color: $text;
+    @include light;
+}
+
+.subtret {
+    @include float($ltr);
+    @include light;
+    font-size: 17px;
+    color: $text;
+    font-size: 17px;
+    border-top: 1px solid #dedede;
+    margin: 40px 0 10px 0;
+    padding: 30px 0 0px 0;
+}
+
+.calendersection {
+    @include float($rtl);
+    padding: 22px;
+    width: 94%;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin: 30px 0 0 0;
+    text-align: left;
+    span.price {
+        font-size: 14px;
+        label {
+            font-size: 22px;
+        }
+    }
+    .calendertop {
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #eee;
+        margin: 0 0 20px 0;
+    }
+    .DateRangePickerInput,
+    .DateRangePicker {
+        width: 100%;
+    }
+    p-dropdown>.ui-state-default {
+        border: 1px solid #d6d6d6;
+        background: #ffffff;
+        color: #555555;
+        padding: 8px 6px;
+        height: 47px;
+        border-radius: 0 !important;
+        width: 100% !important;
+        margin: 4px 0 20px 0;
+        font-size: 16px;
+    }
+    .calenderbottom .btn {
+        width: 100%;
+    }
+}
+
+.calenderMiddle>span {
+    margin: 10px 0 0 0;
+    float: left;
+    width: 100%;
+    font-size: 13px;
+}
+
+.leftdelsection {
+    @include float($ltr);
+    padding: 25px 0 0 0;
+    margin: 25px 0 0 0;
+    border-top: 1px solid #dedede;
+    h3.totlareviewcount {
+        border-bottom: 1px solid #dedede;
+        padding: 0 0 20px 0;
+        @include bold;
+        >span {
+            float: $ltr;
+            margin: 0 30px 0 0
+        }
+        p-rating {
+            font-size: 19px;
+            margin: 3px 0 0 0;
+            display: inline-block;
+            color: $theme;
+        }
+    }
+    ul.reviewlift {
+        @include float($ltr);
+        margin: 0 -10px;
+        li {
+            padding: 0 10px;
+            p-rating {
+                float: $rtl;
+                margin: 4px 0 0 0;
+                color: $theme;
+            }
+            span {
+                float: $ltr;
+            }
+        }
+    }
+    ul {
+        @include float($ltr);
+        &.ulfull {
+            @include float($ltr);
+            li {
+                float: $ltr;
+                width: 100%;
+                margin: 3px 0;
+            }
+        }
+    }
+    li {
+        width: 50%;
+        float: left;
+        font-size: 17px;
+        margin: 7px 0;
+        @include light;
+        .fa {
+            margin: 0 7px 0 0;
+            color: #008489;
+        }
+    }
+    span.leftdelsectionhead {
+        @include semi;
+        @include float($ltr);
+        font-size: 16px;
+        margin: 0 0 5px 0;
+        color: #484848;
+    }
+}
+
+.productHolder {
+    float: left;
+    width: 200px;
+}
+
+.imageholds {
+    float: left;
+    width: 100%;
+}
+
+.imageholds img {
+    float: left;
+    width: 100%;
+}
+
+.sleepingarangement.leftdelsection li {
+    border: 1px solid #ccc;
+    padding: 15px 20px;
+    height: 110px;
+    border-radius: 3px;
+    >span {
+        @include float($ltr);
+        margin: 10px 0 0 0;
+    }
+}
+
+.bookingresult {
+    li {
+        @include float($ltr);
+        border-bottom: 1px solid #ccc;
+        padding: 5px 0 5px 0;
+    }
+    margin-bottom: 30px;
+    @include float($ltr);
+}
+
+label.readMore i.fa {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 26px;
+    margin: 0 0 0 9px;
+    position: relative;
+    top: 2px;
+}
+
+.contacctdetailMiddle {
+    .DateRangePicker {
+        width: 100%
+    }
+    .DateInput {
+        width: 270px;
+    }
+}
+
+.modal#contactHost {
+    display: block;
+    background: #000000a1;
+    .modal-content {
+        border-radius: 0;
+    }
+}
+
+ul.policylist.ulfull {
+    margin: 30px 0;
+    li {
+        list-style: disc;
+        margin: 0 0 5px 30px;
+    }
+}
+
+.contacctdetailMiddle textarea {
+    margin: 20px 0 20px 0;
+    border-radius: 0;
+    height: 110px;
+    box-shadow: none;
+}
+
+.simlarlisting {
+    @include float($ltr);
+    app-productarray {
+        margin: 20px -10px;
+    }
+    app-productsingle {
+        width: 313px;
+        float: left;
+        margin: 0 10px;
+    }
+    .productHolder .imageHolds {
+        height: 210px;
+    }
+}
+
+.calendersection.sticky {
+    width: 375px;
+    position: fixed;
+    top: 41px;
+    background: #fff;
+}
+
+.productdetailheader {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+}
+
+.detailpagetopsection {
+    @include float($ltr);
+    position: relative;
+    margin: 0 -15px 40px -15px;
+    >.col-md-5 {
+        position: static
+    }
+}
+
+.mapsection {
+    @include float($ltr);
+}
+
+.calendersection.stickyBottom {
+    position: absolute;
+    width: 375px;
+    top: inherit;
+    bottom: 0;
+    right: 40px;
+    margin: 0;
+}
+
+.productdetailheader {
+    display: none
+}
+
+.reviewlist {
+    >li {
+        border-bottom: 1px solid #dedede;
+        padding: 15px 0;
+    }
+    figure {
+        float: left;
+        width: 48px;
+        height: 48px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        margin: 0 20px 0 0;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .aurtordet {
+        float: $ltr;
+        width: calc(100% - 70px);
+        font-size: 14px;
+        label {
+            @include float($ltr);
+            margin: 0;
+        }
+        span {
+            @include float($ltr);
+        }
+    }
+    .ratingfull {
+        @include float($ltr);
+        font-size: 13px;
+        width: auto;
+        margin: 5px 0 10px 0;
+        p-rating .fa {
+            margin: 0;
+        }
+    }
+    p.reviewcontent {
+        @include float($ltr);
+        font-size: 16px;
+        text-align: justify;
+    }
+}
+
+.reviewpaginate {
+    float: $ltr;
+    margin: 30px 0 40px 0;
+    .ui-paginator {
+        background: no-repeat;
+        border: none;
+        padding: 0;
+        a.ui-state-disabled {
+            outline: 0 none;
+            display: none;
+        }
+    }
+}
+
+.reviewreadmore {
+    float: $ltr;
+}
+
+.reviewcontent.reviewreadmore {
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    max-height: 3.6em;
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+    &:before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: white;
+    }
+}
+
+#showAmenties {
+    float: left;
+    width: 100%;
+    max-height: 120px;
+    overflow: hidden;
+    &.ShowAmenities {
+        max-height: inherit;
+    }
+}
+
+.detailMainSection {
+    @include float($ltr)
+}
+
+.ui-rating a {
+    color: #008489;
+}
+
+.ui-galleria {
+    position: inherit;
+    border: none;
+}
+
+.ui-galleria-nav-next {
+    right: 0px;
+    top: 230px;
+    bottom: auto !important;
+    font-size: 130px;
+    &.fa-chevron-circle-right:before {
+        content: "\f105";
+        background: none;
+        color: #fff;
+    }
+}
+
+.ui-galleria-nav-prev {
+    left: 0px;
+    top: 230px;
+    bottom: auto !important;
+    font-size: 130px;
+    &.fa-chevron-circle-left:before {
+        content: "\f104";
+        background: none;
+        color: #fff;
+    }
+}
+
+.ui-galleria-caption {
+    display: none !important;
+}
+
+.ui-galleria-filmstrip-wrapper {
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    background: #000000e3;
+    padding: 20px 10px !important;
+    height: 57px !important;
+    width: 100% !important;
+}
+
+.ui-galleria-filmstrip {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 2340px;
+    z-index: 900;
+    position: absolute;
+    top: 8px;
+}
+
+.gallery {
+    overflow: hidden;
+}

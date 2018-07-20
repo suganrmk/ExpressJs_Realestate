@@ -1,0 +1,132 @@
+<!--//////////////////////////////////////////////////account body starts///////////////////-->
+<section class="dashboardbg">
+    <div class="dashbrdbody">
+        <div class="dashboardcontainer">
+            <div class="row">
+                <div class="col-sm-3 col-xs-12">
+
+
+                    <!--leftpannel-->
+                    <app-profilecard></app-profilecard>
+                    <!--leftpannel-->
+
+
+
+
+                </div>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="rigthdivsec">
+
+                        <!--rightpannel-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading pad0">
+                                <ul class="nav sidednav">
+                                    <li class="active"><a data-toggle="tab" (click)="inboxtype('travelling')" aria-expanded="true">Travelling </a></li>
+                                    <li class=""><a data-toggle="tab" (click)="inboxtype('hosting')" aria-expanded="false">Hosting</a></li>
+                                </ul>
+                            </div>
+                            <div class="panel-body pad0">
+
+                                <div class="tab-content">
+
+                                    <div id="Travellingtab" class="tab-pane fade in active">
+                                        <div class="table-responsive tablecustom message">
+                                            <table class="table">
+                                                <!-- <thead>
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>From</th>
+                                                            <th>Subject</th>
+                                                            <th>Action</th>
+    
+                                                        </tr>
+                                                    </thead> -->
+                                                <tbody>
+                                                    <tr *ngFor="let message of messages; let i = index">
+                                                        <td>
+                                                            <figure class="figlvel"><img src="{{message.from.common.photoUrl}}"></figure>
+
+                                                        </td>
+                                                        <td class="dmclr"><span class="clientname">{{message.from.common.firstName}}</span>{{message.sendDate | date}}</td>
+                                                        <td class="{{message.status}}">
+                                                            <a routerLink="/user/inbox/{{message.bookingId}}">
+                                                                <!-- {{message.subject}} -  -->
+                                                                <span class="messagecolor"> {{message.message}}</span></a>
+                                                        </td>
+
+                                                        <td *ngIf="message.bookingStatus">{{message.bookingStatus}}</td>
+
+                                                        <!-- <td>{{message.status}}</td> -->
+
+                                                        <!-- <td class="read">
+
+                                                            <button class="btn btn-xs" (click)="deleteMessage(message._id , i)">
+                                                                    <i class="fa fa-remove"></i>
+                                                                </button>
+                                                            <button class="btn btn-xs" (click)="statusChange(message.status ,  message._id)">
+                                                                        <i class="fa fa-undo"></i>
+                                                                    </button>
+                                                        </td> -->
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <!--rightpannel-->
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--//////////////////////////////////////////////////account body ends///////////////////-->
+
+
+
+<div id="MessageOpen" *ngIf="messageContent" style="display:block" class="modal fade in" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{messageContent.message}}</p>
+
+                <p (click)="reply()">reply</p>
+
+                <div class="replyMessage">
+                    <label>To:{{messageContent.from.firstName}} </label>
+                    <form (ngSubmit)="onSubmitForm(Formdata , messageContent);" #Formdata="ngForm">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="messageform.subject" #subject="ngModel" name="subject" id="subject">
+
+                            <textarea class="form-control" [(ngModel)]="messageform.message" #message="ngModel" name="message" id="message">
+                                    </textarea>
+                            <button class="btn">Send</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="closeMessage()" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

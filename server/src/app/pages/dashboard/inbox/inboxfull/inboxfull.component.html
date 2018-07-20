@@ -1,0 +1,151 @@
+<div class="dashboardcontainer">
+    <div class="row">
+        <div class="col-md-4">
+            <div *ngIf="bookings" class="sidebarholder">
+                <div *ngIf="usertype === 'traveller'">
+                    <figure class="clientprof">
+                        <img src="{{bookings.producthost.common.photoUrl}}" />
+                    </figure>
+
+                    <label class="clinetName">{{bookings.producthost.common.firstName}}</label>
+
+                    <div class="review">
+                        2 Verifications . 6 Reviews
+                    </div>
+                </div>
+
+                <div *ngIf="usertype === 'hoster'">
+                    <figure class="clientprof">
+                        <img src="{{bookings.traveller.common.photoUrl}}" />
+                    </figure>
+
+                    <label class="clinetName">{{bookings.traveller.common.firstName}}</label>
+
+                    <div class="review">
+                        2 Verifications . 5 Reviews
+                    </div>
+                </div>
+
+                <h4 class="triphead"> Trip details</h4>
+                <h4 class="tripTitle"> {{bookings.productId.Description.Title}}</h4>
+
+                <div class="row checkincolom">
+                    <div class="col-md-6">
+                        <span>Check in</span>
+                        <label>{{bookings.bookedfrom | date}}</label>
+                    </div>
+                    <div class="col-md-6">
+                        <span>Check out</span>
+                        <label>{{bookings.bookedto | date}}</label>
+                    </div>
+
+                </div>
+
+                <div class="row checkincolom">
+                    <div class="col-md-12">
+                        <span>Guest</span>
+                        <label>{{bookings.numberofguest}} Guest</label>
+                    </div>
+
+                </div>
+
+                <h4 class="triphead"> Payment</h4>
+                <ul class="paymentdetail">
+                    <li>
+                        <span>{{bookings.pricing.currency}} {{bookings.pricing.baseprice}} x {{bookings.pricing.staydays}} nights</span>
+                        <label>{{bookings.pricing.currency}} {{bookings.pricing.calculatedprice}}</label>
+                    </li>
+                    <li>
+                        <span>Cleaning Price</span>
+                        <label>{{bookings.pricing.currency}} {{bookings.pricing.cleaningprice}}</label>
+                    </li>
+                    <li>
+                        <span>Service fee</span>
+                        <label>{{bookings.pricing.currency}} {{bookings.pricing.serviceprice}}</label>
+                    </li>
+
+                    <li class="subtotal">
+                        <span>Subtotal</span>
+                        <label>{{bookings.pricing.currency}} {{bookings.pricing.totalprice}}</label>
+                    </li>
+                </ul>
+
+
+
+            </div>
+        </div>
+        <div *ngIf="bookings" class="col-md-8">
+            <div class="messageVisible">
+                <div *ngIf="usertype === 'hoster' && bookings.hostapproval === 'accepted'" class="mesgsection">
+                    <h3>Booking is confirmed</h3>
+                    <button (click)="hostdecline()" class="btn btn-primary"> Cancel Reservation</button>
+                </div>
+                <div *ngIf="usertype === 'hoster' && bookings.hostapproval === 'pending'" class="mesgsection">
+                    <h3>{{bookings.traveller.common.firstName}} sent a request to booking for your listing</h3>
+                    <p>Respond within 23 : 52 : 40 to maintain your response rate.</p>
+                    <button (click)="userrespond('accepted')" class="btn btn-primary">Accept</button>
+                    <button (click)="userrespond('declined')" class="btn btn-default"> Decline</button>
+                </div>
+                <div *ngIf="usertype === 'hoster' && bookings.hostapproval === 'declined'" class="mesgsection">
+                    <h3> Request declined</h3>
+                    <p *ngIf="bookings.status === 'hostdeclined'"> Make sure your calendar is up-to-date and that your listing page accurately reflects your house rules and requirements.
+                    </p>
+                    <p *ngIf="bookings.status === 'userdeclined'">User has declined.</p>
+
+                </div>
+                <div *ngIf="usertype === 'traveller' && bookings.hostapproval === 'pending'" class="mesgsection">
+                    <h3>Your booking request sent to Demo.. User for their listing</h3>
+                    <p>Most hosts respond within 24 hours. If you don`t want to continue with this host further, you can cancel this request.</p>
+                    <button (click)="userdecline()" class="btn btn-primary">Cancel Reservation</button>
+                </div>
+                <div *ngIf="usertype === 'traveller' && bookings.hostapproval === 'accepted'" class="mesgsection">
+                    <h3>Your booking is confirmed with Martin King for their listing</h3>
+                    <p>You can contact your host and do necessary arrangements or you can cancel your reservation.</p>
+                    <button (click)="userdecline()" class="btn btn-primary"> Cancel Reservation</button>
+                    <button *ngIf="bookings.payment === 'pending'" (click)="paynow()" class="btn btn-primary">pay now</button>
+                </div>
+                <div *ngIf="usertype === 'traveller' && bookings.status === 'hostdeclined'" class="mesgsection">
+                    <h3> Request declined</h3>
+                    <p>Your request is declined by host. You can choose different dates or search for other listing.</p>
+                    <p *ngIf="bookings.payment === 'completed'">Payment Will refund soon as per the policy</p>
+                </div>
+
+                <div *ngIf="usertype === 'traveller' && bookings.status === 'userdeclined'" class="mesgsection">
+                    <h3> Request declined</h3>
+                    <p>You have canceled you Request. Please make sure before booking.</p>
+                    <p *ngIf="bookings.payment === 'completed'">Payment Will refund soon as per the policy</p>
+                </div>
+
+                <div class="messagereply">
+                    <div class="messageContent">
+                        <form (ngSubmit)="onSubmitForm(Formdata , messageContent);" #Formdata="ngForm">
+                            <textarea placeholder="write your message here" class="form-control" [(ngModel)]="messageform.message" #message="ngModel" name="message" id="message">
+                                                                    </textarea>
+                            <div class="messagebuttonHolder">
+                                <button class="btn btn-primary"> Send Message </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="figure">
+                        <figure>
+                            <img src="{{userphoto}}" />
+                        </figure>
+                    </div>
+                </div>
+
+
+                <ul class="mesgcontent">
+
+                    <li *ngFor="let message of messages" class="odd" [class.usermessage]="message.from._id === userData.id">
+                        <div class="msgdispla">
+                            <p>{{message.message}}</p>
+                            <span>{{message.sendDate | date}}</span>
+                        </div>
+                        <figure><img src="{{message.from.common.photoUrl}}" /></figure>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

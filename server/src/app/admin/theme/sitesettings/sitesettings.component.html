@@ -1,0 +1,59 @@
+<p-panel>
+    <p-header> {{pagetitle}}
+    </p-header>
+
+
+
+    <div class="sitesettings">
+        <form (ngSubmit)="savesettings(sitesettings);" class="half " #sitesettings="ngForm">
+
+            <div class="form-group">
+                <label for="logo">Logo</label>
+                <p-fileUpload name="myfile[]" id="updd" accept="image/*" (onUpload)="onBasicUpload($event)" url="http://localhost:4000/route/upload"></p-fileUpload>
+                <img *ngIf="site.logo" src="http://localhost:4000/{{site.logo.filename}}" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Site Name</label>
+                <input type="text" [(ngModel)]="site.name" #name="ngModel" class="form-control" name="name" id="name" required />
+            </div>
+
+
+            <div class="form-group">
+                <label for="title">Site Title</label>
+                <input type="text" [(ngModel)]="site.title" #title="ngModel" class="form-control" name="title" id="title" required />
+            </div>
+
+
+            <div class="form-group">
+                <label for="meta">Meta Description</label>
+                <input type="text" [(ngModel)]="site.meta" #meta="ngModel" class="form-control" name="meta" id="meta" required />
+            </div>
+
+            <div class="form-group">
+                <label for="facebook">Facebook URL</label>
+                <input type="text" [(ngModel)]="site.facebook" #facebook="ngModel" class="form-control" name="facebook" id="facebook" required />
+            </div>
+
+            <div class="form-group">
+                <label for="twitter">Twitter URL</label>
+                <input type="text" [(ngModel)]="site.twitter" #twitter="ngModel" class="form-control" name="twitter" id="twitter" required />
+            </div>
+
+
+            <div class="form-group">
+                <label for="instagram">Instagram URL</label>
+                <input type="text" [(ngModel)]="site.instagram" #instagram="ngModel" class="form-control" name="instagram" id="instagram" required />
+            </div>
+
+
+
+
+            <button type="button" *ngIf="!sitesettings.form.valid" [disabled]="!sitesettings.form.valid" class="btn btn-success btn-block">Submit</button>
+
+            <button type="submit" *ngIf="sitesettings.form.valid" [disabled]="!sitesettings.form.valid" class="btn btn-success btn-block">Submit</button>
+        </form>
+    </div>
+
+
+</p-panel>

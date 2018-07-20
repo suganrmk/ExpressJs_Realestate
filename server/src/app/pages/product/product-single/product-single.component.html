@@ -1,0 +1,21 @@
+<span (click)="addwishlist(productId)" class="wishlist">
+        <i class="fa fa-heart-o"></i>
+    </span>
+<div [routerLink]="['/product', productId]" (mouseover)="productover( productId )" (mouseout)="productoverout( productId )" class="productHolder">
+    <figure class="imageHolds">
+        <img src="http://localhost:4000/{{productImg}}" />
+
+    </figure>
+    <div class="productcontent">
+        <div class="topContent">
+            <span>ENTIRE APPARTMENT </span> <span>2 BEDS</span>
+        </div>
+        <span class="productName">{{productName}}</span>
+        <span class="productPrice">From {{productPrice | price:activeCurrency | currency:activeCurrency :'symbol'}} per night</span>
+
+        <div class="starration">
+            <p-rating [ngModel]="rating" readonly="true" [cancel]="false"></p-rating>
+            <span>{{ratingCount}}</span>
+        </div>
+    </div>
+</div>

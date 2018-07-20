@@ -1,0 +1,55 @@
+.reviewpage {
+    @include regular;
+    // $text:#484848;
+    color: $text;
+    textarea {
+        @include float($ltr);
+        height: 100px;
+        @include regular;
+    }
+    form {
+        label {
+            @include float($ltr);
+            font-weight: normal;
+            @include regular;
+            margin: 10px 0 5px 0;
+            font-size: 15px;
+        }
+        .form-group {
+            @include float($ltr);
+            @include regular;
+        }
+    }
+    h2.describtile {
+        margin: 0 0 10px 0;
+        font-family: 'RobotoMedium';
+        font-size: 21px;
+    }
+    p-rating {
+        margin: 0 0 0;
+        .fa {
+            font-size: 20px;
+        }
+    }
+    .btntopdivider {
+        border-top: 1px solid #ccc;
+        @include float($ltr);
+        margin: 30px 0 0 0;
+        padding: 30px 0 0 0;
+    }
+    .reviewlift {
+        @include float($ltr);
+        margin: 22px 0;
+        li {
+            @include float($ltr);
+            width: 50%;
+            padding: 5px 10px 5px 0;
+            >span {
+                float: $ltr;
+            }
+            p-rating {
+                float: $rtl;
+            }
+        }
+    }
+}

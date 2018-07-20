@@ -1,0 +1,78 @@
+.productHolder {
+    @include float($ltr);
+    width: 100%;
+    .imageHolds {
+        @include float($ltr);
+        height: 190px;
+        overflow: hidden;
+        position: relative;
+        >img {
+            @include float($ltr);
+        }
+    }
+}
+
+app-productsingle {
+    position: relative;
+}
+
+.productcontent {
+    @include float($ltr);
+    .topContent {
+        font-size: 12px;
+        @include float($ltr);
+        color: $text;
+        margin: 8px 0 3px 0;
+        @include semi;
+    }
+    .productName {
+        color: $text;
+        @include bold;
+        font-size: 16px;
+        line-height: 22px;
+        @include float($ltr);
+        max-height: 48px;
+        overflow: hidden;
+    }
+    .productPrice {
+        @include regular;
+        color: rgb(72, 72, 72);
+        font-size: 14px;
+        margin: 4px 0 0 0;
+        @include float($ltr);
+    }
+}
+
+span.wishlist {
+    position: absolute;
+    right: 17px;
+    top: 19px;
+    z-index: 9;
+    cursor: pointer;
+    >.fa {
+        font-size: 25px;
+        text-shadow: 0 0 0px #fff;
+    }
+}
+
+.starration {
+    float: left;
+    width: 100%;
+    font-size: 10px;
+    margin: 3px 0 0 0;
+    span {
+        font-size: 11px;
+        color: #008489;
+    }
+    >span {
+        color: #424242;
+        float: left;
+        margin: -2px 0 0 6px;
+        font-size: 12px;
+        @include regular;
+    }
+    p-rating {
+        float: left;
+        color: #008489;
+    }
+}

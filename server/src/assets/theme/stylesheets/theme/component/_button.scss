@@ -1,0 +1,28 @@
+.btn.btn-clone {
+    background: #008489;
+    border: none;
+    font-size: 14px;
+    width: auto;
+    padding: 8px 30px;
+    border-radius: 3px;
+}
+
+.btn-xs.btn {
+    padding: 0px 7px;
+    margin: 0;
+}
+
+.btn.btn-border {
+    background: none;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: auto;
+    padding: 8px 30px;
+    color: #484848;
+    border-radius: 3px;
+    &:hover {
+        background: $pinkorange;
+        border: 1px solid $pinkorange;
+        color: #fff;
+    }
+}

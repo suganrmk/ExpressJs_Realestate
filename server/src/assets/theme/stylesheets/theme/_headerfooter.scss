@@ -1,0 +1,246 @@
+/*----- HEADER----------------------------------------------- */
+
+.container {
+    width: 1240px;
+    @include regular;
+    margin: 0 auto;
+}
+
+.home-container {
+    width: 1066px;
+    @include regular;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.searchInputHeader {
+    float: left;
+    border: 1px solid #cccccc8a;
+    width: 400px;
+    height: 49px;
+    margin: 18px 0 0 0;
+    border-radius: 3px;
+    box-shadow: 0 3px 4px 1px #cccccc2e;
+    >i {
+        width: 60px;
+        text-align: center;
+        font-size: 21px;
+        float: left;
+        color: #b5b3b3;
+        margin: 13px 0 0 0;
+    }
+    >input {
+        border: none;
+        font-size: 16px;
+        line-height: 33px;
+        color: $text;
+        width: calc(100% - 80px);
+        height: 99%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+app-header {
+    @include float($ltr)
+}
+
+app-header .navbar-inverse {
+    border: none;
+    border-bottom: 1px solid #eee;
+    border-radius: 0;
+    // height: 61px;
+    top: 0px;
+    // background: -webkit-linear-gradient(0deg, #ffffff, #f7f7f7);
+    // background: -moz-linear-gradient(0deg, #ffffff, #f7f7f7);
+    // background: linear-gradient(0deg, #ffffff, #f7f7f7);
+    width: 100%;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar>.container a.navbar-brand {
+    margin: 0;
+    font-family: 'robotoMedium';
+    color: #ff5a5f;
+    margin: 16px 10px 0px 0;
+}
+
+.navRight li .dropdown>button#dropdownMenuButton {
+    margin: 20px 0 0 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    background: none;
+    >img {
+        width: 100%;
+    }
+}
+
+.navRight {
+    float: right;
+    margin: 0 -15px 0 0;
+    li {
+        float: left;
+        a {
+            float: left;
+            color: $text;
+            text-decoration: none;
+            padding: 29px 15px;
+            margin: 0;
+            border-bottom: 2px solid transparent;
+            position: relative;
+        }
+        .dropdown-menu {
+            top: 78px;
+        }
+    }
+}
+
+.home {
+    .navbar {
+        // position: absolute;
+        border: none;
+        border-radius: 0;
+        z-index: 88;
+        background: none;
+        width: 100%
+    }
+    .searchInputHeader {
+        display: none
+    }
+}
+
+.navbar {
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    .dropdown-menu {
+        right: 0;
+        left: auto;
+        width: 240px;
+        a {
+            width: 100%;
+            float: left;
+            color: $text;
+            padding: 8px 15px;
+        }
+    }
+}
+
+
+/*-------------------FOOTER----------------------*/
+
+.footer {
+    @include float($ltr);
+    // background: darken($text, 10%);
+    border-top: 1px solid #dce0e0;
+    padding: 40px 0 0;
+}
+
+.curenc-holder {
+    @include float($ltr);
+}
+
+.curency {
+    @include float($ltr);
+    border: none;
+    color: $text;
+    height: 41px;
+    margin: 0 0 7px;
+    padding: 0 6px;
+    border: 1px solid #dce0e0;
+    width: 70%;
+}
+
+.footertop {
+    @include float($ltr);
+    border-bottom: 1px solid #dce0e0;
+    color: $text;
+    padding: 25px 0px 30px;
+}
+
+.comany-div {
+    @include float($ltr);
+}
+
+.footerheadeing {
+    @include float($ltr);
+    color: $text;
+    @include semi;
+    font-size: 15px;
+    margin: 0 0 7px;
+}
+
+.footermenu {
+    @include float($ltr);
+    >li {
+        @include float($ltr);
+        padding: 2px 0;
+        >a {
+            @include float($ltr);
+            color: $text;
+            font-size: 13px;
+        }
+    }
+}
+
+.footer-logo {
+    @include float($ltr);
+    >a>img {
+        @include float($ltr)
+    }
+}
+
+.joinus {
+    @include float(center);
+    // @include bold;
+    color: $text;
+    margin: 20px 0 15px;
+}
+
+.socila-icon {
+    @include float($ltr);
+    margin: 14px 0 0 -5px;
+    li {
+        display: inline-block;
+        a {
+            border: 1px solid;
+            border-radius: 50%;
+            color: $text;
+            display: inline-block;
+            font-size: 14px;
+            height: 35px;
+            line-height: 32px;
+            margin: 0 5px;
+            text-align: center;
+            vertical-align: middle;
+            width: 35px;
+        }
+    }
+}
+
+
+/*-------------------responsive menu-----------------------*/
+
+
+/*------------------condition cs-----------------------*/
+
+@if $ltr=='right' {
+    .logotag {
+        border-left: 1px solid lighten($text2, 30%);
+    }
+    .navigation-menu>ul>li {
+        border-right: 1px solid lighten($text2, 30%);
+        border-left: none;
+    }
+}
+
+@else {
+    .logotag {
+        border-right: 1px solid lighten($text2, 30%);
+    }
+}

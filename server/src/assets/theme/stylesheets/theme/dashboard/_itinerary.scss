@@ -1,0 +1,64 @@
+app-itinerary {
+    float: left;
+    width: 100%;
+    padding: 40px 0;
+}
+
+ul.reservationlist {
+    margin: 30px 0 0 0;
+    @include float($ltr);
+    li {
+        @include float($ltr);
+        padding: 20px 0;
+        border-bottom: 1px solid #dce0e0;
+        &:last-child {
+            border: none;
+        }
+    }
+}
+
+.reservRight {
+    float: left;
+    width: 80%;
+}
+
+span.reservtile {
+    float: left;
+    width: 20%;
+    @include semi;
+}
+
+span.checktitle {
+    float: left;
+    width: 40%;
+    @include semi;
+}
+
+.itineraryrooms {
+    @include float($ltr);
+    .figureProduct {
+        @include float($ltr);
+        height: 201px;
+        background: #eee;
+        margin: 0 0 20px 0;
+        overflow: hidden;
+        >img {
+            width: 100%;
+        }
+    }
+}
+
+.checkoutdiv {
+    float: left;
+    width: 60%;
+}
+
+span.newdates {
+    float: left;
+    width: 39%;
+}
+
+.reservRight {
+    float: left;
+    width: 80%;
+}

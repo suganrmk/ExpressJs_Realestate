@@ -1,0 +1,111 @@
+<!--//////////////////////////////////////////////////account body starts///////////////////-->
+<section class="dashboardbg">
+    <div class="dashbrdbody">
+        <div class="dashboardcontainer">
+            <div class="row">
+                <div class="col-sm-3 col-xs-12">
+
+                    <!--leftpannel-->
+                    <div class="leftpanels">
+
+
+                        <ul class="paylisttext">
+                            <li><span class="hedlines"><i class="fa fa-circle"></i>View Trips</span></li>
+                            <li routerLinkActive="active"><a routerLink="/user/userprevioustrips">Previous Trips</a></li>
+                        </ul>
+                    </div>
+                    <!--leftpannel-->
+
+
+                    <!--leftpannel-->
+                    <app-profilecard></app-profilecard>
+                    <!--leftpannel-->
+
+
+
+
+                </div>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="rigthdivsec nextri prevtri">
+
+                        <!--rightpannel-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="leftconle">My Trips
+                                </div>
+                                <!-- <div class="righconle">
+                                    <input class="srchtxt" placeholder="Search your Trips" type="text">
+                                </div> -->
+                            </div>
+                            <div class="panel-body pad0">
+
+
+
+                                <div class="table-responsive tablecustom datedivcolor">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <!-- <th style="width: 17%;">Booked on</th> -->
+                                                <th>Property details</th>
+                                                <th>Host</th>
+                                                <th>Payment</th>
+                                                <th>Approval</th>
+                                                <th>Price</th>
+
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let trip of trips">
+                                                <!-- <td>{{trip.createdAt | date}}</td> -->
+                                                <td class="nesitd">
+                                                    <a href="#">{{trip.productId.Description.Title}}</a>
+                                                    <span>{{trip.bookedfrom | date}} {{trip.bookedto | date}} <br>  Booking #: {{trip.bookingId}}</span></td>
+                                                <td>
+                                                    <figure class="filines"><img src="{{trip.producthost.common.photoUrl}}"></figure>
+                                                    <span>{{trip.producthost.common.firstName}}</span>
+                                                </td>
+
+
+                                                <td>
+                                                    <span *ngIf="trip.hostapproval === 'pending'"> {{trip.payment}}</span>
+                                                    <span *ngIf="trip.payment === 'completed' && trip.hostapproval === 'accepted'"> {{trip.payment}}</span>
+
+                                                    <a *ngIf="trip.payment === 'pending' && trip.hostapproval === 'accepted'" (click)="paynow(trip)">
+                                                        pay Now
+                                                    </a>
+                                                </td>
+                                                <td>{{trip.hostapproval}}</td>
+                                                <td>
+                                                    <div> ${{trip.pricing.totalprice}} </div>
+                                                    <a routerLink="/user/inbox/{{trip.bookingId}}">View messages</a>
+                                                    <span *ngIf="trip.payment === 'completed'" [routerLink]="['/user/itinerary/' + trip.bookingId]">View Itinerary</span>
+                                                    <span *ngIf="trip.payment === 'completed'" [routerLink]="['/receipt/' + trip.bookingId]">view receipt</span>
+
+                                                </td>
+
+                                            </tr>
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <!--rightpannel-->
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--//////////////////////////////////////////////////account body ends///////////////////-->

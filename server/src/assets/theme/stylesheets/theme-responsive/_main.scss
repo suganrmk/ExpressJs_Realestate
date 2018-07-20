@@ -1,0 +1,297 @@
+/** Responsive CSS **/
+
+
+/* ============================= 1124px ====================== */
+
+@media (max-width: 1174px) {
+    .home-container {
+        @include float($ltr)
+    }
+    .container {
+        @include float($ltr)
+    }
+    .searchbarform {
+        display: inherit;
+        float: none;
+        margin: 0 auto;
+        width: 690px;
+    }
+    .floamlist>li input[type="text"],
+    .floamlist>li select {
+        width: 120px
+    }
+    .floamlist>li input[type="text"].searchtext {
+        width: 210px;
+    }
+    .floamlist>li select.guet {
+        border: medium none;
+        color: #82888a;
+        line-height: 58px;
+        width: 100px;
+    }
+    .sliderholder {
+        height: auto;
+    }
+    .video-tag {
+        height: 400px;
+    }
+    footer .home-container {
+        width: 100%;
+    }
+    .footertop {
+        padding: 0
+    }
+    .listing-info {
+        display: none
+    }
+    .col-md-7.bgwhite {
+        width: 100%;
+    }
+}
+
+
+/* ============================= 1024px ====================== */
+
+@media (max-width: 1024px) {}
+
+
+/* ============================= 990 ====================== */
+
+@media (max-width: 990px) {
+    .prefooter {
+        display: none
+    }
+    .exporetxt li {
+        height: 203px;
+    }
+    .searchheader {
+        width: 55%
+    }
+    .searchheader input[type="text"] {
+        text-overflow: ellipsis;
+        width: 107px;
+    }
+}
+
+
+/* ============================= 990 ====================== */
+
+@media (max-width: 850px) {
+    .listspace-container {
+        width: 100%;
+        padding: 0 20px
+    }
+}
+
+
+/* ============================= 767px ====================== */
+
+@media (max-width: 767px) {
+    .curenc-holder {
+        @include display
+    }
+    .curency {
+        float: none;
+        width: 200px;
+        display: inline-block;
+        margin: 5px;
+    }
+    .headerfullwidth {
+        display: none;
+    }
+    .menuright {
+        float: $rtl;
+        color: $theme;
+        line-height: 50px;
+        font-size: 22px;
+        cursor: pointer
+    }
+    .searchbarform {
+        display: none;
+    }
+    .searchbarform.reponisuve-menu {
+        display: block;
+        width: 100%;
+    }
+    .floamlist>li input.searchtext[type="text"] {
+        border: medium none;
+    }
+    .footermenu>li>a {
+        text-align: $ctr;
+    }
+    .footerheadeing {
+        text-align: $ctr;
+        margin: 20px 0 0;
+    }
+    .footer-logo {
+        @include display;
+        text-align: $ctr;
+        a {
+            display: inline-block;
+            width: 200px;
+        }
+    }
+    .exporetxt li {
+        height: auto;
+        padding: 0
+    }
+    .mainhead {
+        font-size: 20px
+    }
+    .subhead {
+        font-size: 15px
+    }
+    .rigmenudisp {
+        display: block
+    }
+    header {
+        position: static !important;
+    }
+    .logocontenet {
+        text-align: center;
+        width: 100%;
+    }
+    .listseplte {
+        @include float($ltr);
+    }
+    .listiongfooter .col-xs-2.pull-right {
+        width: 100%;
+    }
+    .listiongfooter {
+        text-align: center
+    }
+    .listiongfooter .col-xs-8.pull-right {
+        @include display
+    }
+    .listingpage-full .tab-content {
+        height: 91%;
+    }
+    .wd45 {
+        text-align: left;
+        width: 61%;
+        input {
+            width: 100%
+        }
+    }
+}
+
+
+/* ============================= 736px ====================== */
+
+@media (max-width: 736px) {
+    .listseplte li {
+        @include float($ltr);
+        >input {
+            @include float($ltr);
+        }
+        button {
+            @include float($ltr);
+            border: none;
+            border-bottom: 1px solid #ccc;
+        }
+    }
+    .listsidebar>li.listing-sideheadeing {
+        display: none
+    }
+    .listsidebar {
+        height: 91%;
+    }
+}
+
+
+/* ============================= 667px ====================== */
+
+@media (max-width: 667px) {}
+
+
+/* ============================= 600px ====================== */
+
+@media (max-width: 600px) {
+    .bannertxt-holder {
+        margin-bottom: 30px;
+    }
+    .responsivemenu {
+        width: 75%;
+        left: -75%;
+    }
+    .listseplte input[type="text"] {
+        width: auto
+    }
+    .contentdetailholder {
+        padding: 0
+    }
+    .listingleft {
+        width: 164px;
+    }
+    .listingpage-full .tab-content {
+        margin-left: 164px;
+    }
+    .listsidebar>li>a {
+        font-size: 15px;
+        padding: 8px 11px;
+    }
+    .listsidebar>li.listing-sideheadeing {
+        padding: 8px 11px;
+    }
+    .stepstoclose {
+        display: none
+    }
+}
+
+
+/* ============================= 568px ====================== */
+
+@media (max-width: 568px) {}
+
+
+/* ============================= 480px ====================== */
+
+@media (max-width: 480px) {
+    .listingleft {
+        position: static;
+        width: 100%;
+    }
+    .listingpage-full {
+        height: auto !important;
+        position: static;
+    }
+    .listingpage-full .tab-content {
+        height: auto;
+        margin-left: 0;
+        position: static;
+    }
+    body {
+        overflow: visible !important;
+    }
+}
+
+
+/* ============================= 414px ====================== */
+
+@media (max-width: 414px) {}
+
+
+/* ============================= 384px ====================== */
+
+@media (max-width: 384px) {}
+
+
+/* ============================= 375px ====================== */
+
+@media (max-width: 375px) {
+    .wd45 {
+        width: 50%;
+        >input {
+            text-overflow: eclipse
+        }
+    }
+    .floamlist>li input.searchtext[type="text"] {
+        width: 100%;
+        text-overflow: ellipsis;
+    }
+}
+
+
+/* ============================= 320px ====================== */
+
+@media (max-width: 320px) {}

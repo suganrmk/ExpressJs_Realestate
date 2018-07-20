@@ -1,0 +1,172 @@
+.wishlistcontainer {
+    margin: 0px;
+    float: left;
+    background: #fff;
+    width: 100%;
+}
+
+.wishlistmodal.modal {
+    .modal-body {
+        padding: 0;
+    }
+    .modal-dialog {
+        width: 800px;
+        margin: 30px auto;
+    }
+}
+
+form.wishlistcreateform {
+    margin: 7px -2px 0px 0;
+    button {
+        border-radius: 0;
+    }
+}
+
+.wishlisthalf {
+    float: left;
+    width: 50%;
+    position: relative
+}
+
+.usercontainer {
+    position: absolute;
+    bottom: 0;
+    background: #0000008a;
+    padding: 20px 10px;
+    .hosterImage {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        float: left;
+        margin: 0px 10px 0 0;
+        img {
+            width: 100%;
+        }
+    }
+    >h5 {
+        float: left;
+        width: calc(100% - 70px);
+        color: #ffff;
+        font-weight: bold;
+        margin: 5px 0 1px 0;
+        font-size: 17px;
+    }
+    >span {
+        color: #fff;
+        float: left;
+        width: calc(100% - 70px);
+    }
+}
+
+.proImage {
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.wishlistList {
+    height: 400px;
+    overflow: auto;
+    li {
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+        &:last-child {
+            border-bottom: none;
+        }
+        .fa {
+            float: right;
+        }
+    }
+}
+
+button.create {
+    width: 100%;
+    background: no-repeat;
+    border: none;
+    padding: 12px 0;
+    border-top: 1px solid #ccc;
+}
+
+figure.proImage {
+    height: 500px;
+}
+
+.wishlistcreateform input[type="text"] {
+    float: left;
+    width: calc(100% - 93px);
+    border-radius: 0;
+    height: 37px;
+    border: none;
+    font-size: 19px;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+
+.wishtitle {
+    font-size: 20px;
+    padding: 18px 14px 15px;
+    border-bottom: 1px solid #cccc;
+    margin: 0;
+    width: 100%;
+}
+
+.wishlist-list {
+    @include float($ltr);
+    margin: 0 -15px;
+    >li {
+        float: $ltr;
+        width: 33.33%;
+        padding: 0 15px 15px 15px;
+        >a {
+            @include float($ltr);
+            height: 350px;
+            background: #ccc;
+            position: relative
+        }
+    }
+}
+
+.wishlisttext {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    span.listname,
+    span.homecount {
+        @include float($rtl);
+        color: #fff;
+        @include semi;
+        font-size: 20px;
+    }
+}
+
+.wishlistuser {
+    @include float($ltr);
+    margin-bottom: 30px;
+}
+
+.wish-userdetl {
+    float: $ltr;
+    >span {
+        color: $red;
+        @include semi;
+        font-size: 20px;
+    }
+    figure {
+        float: $ltr;
+        width: 60px;
+        margin: 0 10px 0 0;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+            @include float($ltr);
+        }
+    }
+    >label {
+        @include float($ltr);
+        width: 50%;
+    }
+}

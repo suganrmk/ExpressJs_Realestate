@@ -1,0 +1,70 @@
+<div class="dashboard">
+    <div class="dasboardsidebar">
+        <div class="sideheader">
+            <a class="#">Hirespace</a>
+        </div>
+        <ul class="sidebarmenu">
+            <li routerLinkActive="active"><a routerLink="/admin/slider"><i class="fa fa-sliders"></i>Sliders</a></li>
+
+
+            <li data-toggle="collapse" routerLinkActive="active" data-target="#products" class="collapsed">
+                <a> <i class="fa fa-laptop"></i> Product Management<span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="products">
+                <li routerLinkActive="active"><a routerLink="/admin/product"><i class="fa fa-circle"></i>Add Product</a></li>
+                <li routerLinkActive="active"><a routerLink="/admin/editproducts"><i class="fa fa-circle"></i>View Products</a></li>
+
+            </ul>
+
+
+            <!-- <li data-toggle="collapse" routerLinkActive="active" data-target="#listspace" class="collapsed">
+                <a> <i class="fa fa-laptop"></i> list your spacce<span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="listspace">
+                <li routerLinkActive="active"><a routerLink="/admin/product"><i class="fa fa-circle"></i>Add Product</a></li>
+                <li routerLinkActive="active"><a routerLink="/admin/editproducts"><i class="fa fa-circle"></i>View Products</a></li>
+
+            </ul> -->
+
+
+
+
+            <li routerLinkActive="active"><a routerLink="/admin/users"><i class="fa fa-user-o"></i>Users</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/housetype"><i class="fa fa-laptop"></i>Property Type</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/roomtype"><i class="fa fa-laptop"></i>Room type</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/bathroomtype"><i class="fa fa-laptop"></i>Bathroom type</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/essentialamenities"><i class="fa fa-laptop"></i>Essential Amenities</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/safetyamenities"><i class="fa fa-laptop"></i>Safety Amenities</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/houserules"><i class="fa fa-laptop"></i>House Rules</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/site_settings"><i class="fa fa-cog"></i>Site Settings</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/reservation"><i class="fa fa-laptop"></i>Reservations</a></li>
+            <li routerLinkActive="active"><a routerLink="/admin/servicefees"><i class="fa fa-money"></i>Service Fees</a></li>
+        </ul>
+    </div>
+
+    <div class="dasboardMaincontent">
+        <div class="maincontentenTop">
+            <ul class="adminleftmenu">
+                <li>
+                    <a>Reports <i class="fa fa-angle-down"></i></a>
+                </li>
+                <li>
+                    <a>Transaction  <i class="fa fa-angle-down"></i></a>
+                </li>
+            </ul>
+
+            <ul class="adminrightmenu">
+
+                <li>
+                    <a>Go Back to MainSite</a>
+                </li>
+                <li>
+                    <a>Admin <i class="fa fa-user-o bor-rad"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="maincontententContainer">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

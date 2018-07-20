@@ -1,0 +1,71 @@
+<!--rightpannel-->
+<div class="panel panel-default">
+    <div class="panel-heading review-by">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs review-nav" role="tablist">
+            <li role="presentation" class="active"><a href="#review-about" aria-controls="review-about" role="tab" data-toggle="tab" class="blue-user"><i></i><span>Reviews About You</span></a></li>
+            <li role="presentation"><a href="#review-by" aria-controls="review-by" role="tab" data-toggle="tab" class="descri"><i></i><span>Reviews by You</span></a></li>
+        </ul>
+        <!-- Tab panes -->
+    </div>
+
+    <div class="panel-body">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="review-about">
+                <div *ngIf="reviewForyou" class="review-listing">
+                    <ul>
+                        <li *ngFor="let review of reviewForyou">
+                            <div class="review-listing-inner">
+                                <div class="review-profile">
+                                    <img width="70px" src="{{review.Reviewby.common.photoUrl}}">
+                                </div>
+                                <div class="review-content">
+                                    <div class="review-content-top">
+                                        <h4><a href="#">{{review.Reviewby.common.firstName}}</a><span>{{review.created | date}}</span></h4>
+                                        <h5>
+                                            <p-rating [ngModel]="review.productrating" name="productrating" id="productrating" required [cancel]="false"></p-rating>
+
+                                        </h5>
+                                    </div>
+                                    <div class="review-content-bottom">
+                                        <p>{{review.usercomment}} </p>
+                                        <!-- <a href="#">Read More</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="review-by">
+                <div class="review-listing">
+                    <ul>
+                        <li *ngFor="let review of reviewByyou">
+                            <div class="review-listing-inner">
+                                <div class="review-profile">
+                                    <img width="70px" src="{{review.host.common.photoUrl}}">
+                                </div>
+                                <div class="review-content">
+                                    <div class="review-content-top">
+                                        <h4><a href="#">{{review.host.common.firstName}}</a><span>{{review.created | date}}</span></h4>
+                                        <h5>
+                                            <p-rating [ngModel]="review.productrating" name="productrating" id="productrating" required [cancel]="false"></p-rating>
+
+                                        </h5>
+                                    </div>
+                                    <div class="review-content-bottom">
+                                        <p>{{review.usercomment}} </p>
+                                        <!-- <a href="#">Read More</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--rightpannel-->

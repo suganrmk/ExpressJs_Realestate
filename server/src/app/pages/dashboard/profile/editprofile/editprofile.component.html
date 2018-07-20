@@ -1,0 +1,167 @@
+<div *ngIf="user" class="rigthdivsec">
+
+    <!--rightpannel-->
+    <form (ngSubmit)="onSubmitForm(Formdata);" #Formdata="ngForm">
+        <div class="panel panel-default">
+            <div class="panel-heading profile-info"><i></i><span>Personal Info</span><strong>Requried *</strong></div>
+            <div class="panel-body">
+                <div class="profile-form">
+
+                    <div class="form-margin form-2">
+                        <div class="form-group">
+                            <label for="">First Name: <sup>*</sup></label>
+                            <input type="text" class="form-control" [(ngModel)]="user.firstName" #firstName="ngModel" name="firstName" id="firstName">
+                        </div>
+                        <div class="form-group last-input">
+                            <label for="">Last Name: <sup>*</sup></label>
+                            <input type="text" class="form-control" [(ngModel)]="user.lastName" #lastName="ngModel" name="lastName" id="lastName">
+                        </div>
+                        <p>This is only shared once you have a confirmed booking with another user.</p>
+                    </div>
+                    <div class="form-margin form-4">
+                        <!-- <div ngModelGroup="dateofbirth" #dateofbirth="ngModelGroup" class="form-group"> -->
+                        <div ngModelGroup="birthday" #birthday="ngModelGroup" class="form-group">
+                            <label>Birth Date: <sup>*</sup></label>
+
+                            <div class="row birthday">
+                                <div *ngIf="birthmonth" class="col-md-6">
+                                    <p-dropdown [options]="birthmonth" [(ngModel)]="user.month" #month="ngModel" name="month" id="month"></p-dropdown>
+
+                                </div>
+                                <div *ngIf="birthdate" class="col-md-3">
+                                    <p-dropdown [options]="birthdate" [(ngModel)]="user.day" #day="ngModel" name="day" id="day" class="day"></p-dropdown>
+
+
+                                </div>
+                                <div *ngIf="birthyear" class="col-md-3">
+                                    <p-dropdown [options]="birthyear" name="year" [(ngModel)]="user.year" #year="ngModel" name="year" id="year" class="mont"></p-dropdown>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- <select [(ngModel)]="user.day" #birthMonth="ngModel" name="day" id="day" class="form-control">
+                                              <option>November</option>
+                                              <option>December</option>
+                                            </select>
+                            <select [(ngModel)]="user.month" #month="ngModel" name="month" id="month" class="form-control">
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                              <option>5</option>
+                                            </select>
+                            <select [(ngModel)]="user.year" #birthyear="ngModel" name="year" id="year" class="form-control">
+                                              <option>1980</option>
+                                              <option>1981</option>
+                                              <option>1982</option>
+                                              <option>1983</option>
+                                              <option>1984</option>
+                                            </select> -->
+                        </div>
+                        <div class="form-group last-input">
+                            <label for="">Gender: <sup>*</sup></label>
+                            <select [(ngModel)]="user.gender" #gender="ngModel" name="gender" id="gender" class="form-control">
+                                              <option>Male</option>
+                                              <option>Female</option>
+                                            </select>
+                        </div>
+                        <p>We use this data for analysis and never share it with other users.</p>
+                    </div>
+                    <div class="form-margin form-1">
+                        <div class="form-group">
+                            <label for="">Email Address: <sup>*</sup></label>
+                            <input [(ngModel)]="user.email" #email="ngModel" name="email" id="email" type="text" class="form-control" id="" placeholder="kevinwood@gmail.com">
+                            <input class="hide" [(ngModel)]="user.photoUrl" #photoUrl="ngModel" name="photoUrl" id="photoUrl" type="text" id="">
+
+                        </div>
+                        <p>This is only shared once you have a confirmed booking with another user.</p>
+                    </div>
+                    <div class="form-margin form-4">
+                        <div class="form-group">
+                            <label for="">Phone Number: <sup>*</sup>  <span   class="hide verfiedText text-sucess"><i  class="fa fa-check"></i>Verified</span></label>
+                            <!-- <select [(ngModel)]="user.country" #country="ngModel" name="country" id="country" class="form-control country-select">
+                            <option>Country</option>
+                            <option>India</option>
+                                        </select> -->
+                            <div class="input-group pull-left">
+                                <!-- <span class="input-group-addon" id="basic-addon1">+1</span> -->
+                                <input type="text" [(ngModel)]="user.mobile" #mobile="ngModel" name="mobile" id="mobile" class="form-control" placeholder="+91 999 999 999" aria-describedby="basic-addon1">
+
+                            </div>
+
+                            <div *ngIf="tokenform" class="tokenarea">
+                                <input type="text" [(ngModel)]="verifytoken" #verifymobtoken="ngModel" name="verifytoken" id="verifytoken" class="form-control" placeholder="Your token">
+                                <button (click)="verifyMobileToken(verifytoken)" class="btn btn-clone">Verfiy</button>
+                            </div>
+
+                        </div>
+                        <div *ngIf="!tokenform" class="form-group last-in">
+                            <a (click)="verifyNumber(user.mobile)" class="verify-btn">Verify via SMS</a>
+                        </div>
+                        <p>This is only shared once you have a confirmed booking with another user. This is how we can all get in touch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--rightpannel-->
+        <!--rightpannel-->
+        <div class="panel panel-default">
+            <div class="panel-heading profile-info descri"><i></i><span>Description</span><strong>Requried *</strong></div>
+            <div class="panel-body">
+                <div class="profile-form profile-bottm">
+                    <div class="form-margin form-1">
+                        <div class="form-group">
+                            <label for="">Where do you live?</label>
+                            <input [(ngModel)]="user.liveplace" #liveplace="ngModel" name="liveplace" id="liveplace" type="text" class="form-control" id="" placeholder="South Philadelphia, PA 19147">
+                        </div>
+                    </div>
+                    <div class="form-margin form-1">
+                        <div class="form-group">
+                            <label for="">Describe Yourself:</label>
+                            <textarea [(ngModel)]="user.description" #description="ngModel" name="description" id="description" class="form-control" rows="6" placeholder="A little about yourself..."></textarea>
+                        </div>
+                        <p>We is built on relationships. Help other people get to know you.</p>
+                    </div>
+                    <!-- <div class="form-margin form-2">
+                        <div class="form-group">
+                            <label for="">School:</label>
+                            <input type="text" class="form-control" id="" placeholder="Univeristy of the Arts, Philadelphia">
+                        </div>
+                        <div class="form-group last-input">
+                            <label for="">Work:</label>
+                            <input type="text" class="form-control" id="" placeholder="MadeByLucas">
+                        </div>
+                    </div>
+                    <div class="form-margin form-2">
+                        <div class="form-group">
+                            <label for="">Time Zone:</label>
+                            <input type="text" class="form-control" id="" placeholder="Univeristy of the Arts, Philadelphia">
+                        </div>
+                        <div class="form-group last-input">
+                            <label for="">Language:</label>
+                            <input type="text" class="form-control" id="" placeholder="English.  Deutsch,  Arabic">
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+
+        <!--rightpannel-->
+
+
+
+        <div class="panel panel-default nobg">
+            <div class="panel-body">
+                <div class="centrinthbtn">
+                    <button (click)="discardchanges()" class="borderbtn Discardchs" href="#">Discard Changes</button>
+                    <button class="btn svshg" href="#">Save Changes</button>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,228 @@
+app-cart {
+    @include float($ltr);
+    padding: 40px 0;
+}
+
+span.cartheadline {
+    @include float($ltr);
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+.panel-info {
+    border-color: #eae5e5;
+    &>.panel-heading {
+        border-color: #e8e4e4;
+        background: none;
+    }
+}
+
+.form-group.selectcontrol {
+    float: left;
+    width: 40%;
+    margin-bottom: 20px;
+    label {
+        font-weight: normal;
+    }
+}
+
+.form-group.textareacontrol {
+    @include float($ltr);
+    width: 100%;
+    label {
+        font-weight: normal;
+        @include float($ltr);
+    }
+    textarea {
+        height: 150px;
+    }
+}
+
+p.paysubtitle {
+    @include float($ltr);
+    color: $text2;
+}
+
+.paymentoption {
+    @include float($ltr);
+}
+
+span.credit {
+    float: left;
+    width: 100%;
+    margin: 10px 0 10px 0;
+    font-size: 18px;
+}
+
+input.form-control.cn {
+    width: 80%;
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.stripform .form-group {
+    @include float($ltr);
+    >label {
+        @include float($ltr);
+    }
+}
+
+.form-group.expires {
+    @include float($ltr);
+    select {
+        float: $ltr;
+        width: 48%;
+        +select {
+            float: $rtl;
+        }
+    }
+}
+
+.cartDetail {
+    float: $ltr;
+    width: 80%;
+}
+
+.paypalcontainer {
+    @include float($ltr);
+    width: 70%;
+    >p {
+        color: $text2;
+        margin: 30px 0 10px 0;
+    }
+    >label {
+        @include float($ltr);
+        font-weight: normal;
+        font-size: 15px;
+    }
+}
+
+.paymentoption .stripform {
+    float: left;
+    width: 70%;
+    border: 1px solid #dce0e0;
+    padding: 15px 20px;
+    input,
+    select {
+        border-color: #dce0e0
+    }
+}
+
+.houserule {
+    @include float($ltr);
+    padding: 10px 20px;
+    background: #f9f9f9;
+    width: 100%;
+    margin: 10px 0 30px 0;
+    >h2 {
+        text-align: center;
+        margin: 20px 0 20px 0;
+        font-size: 22px;
+    }
+    .ruleslists {
+        @include float($ltr);
+        li {
+            @include float($ltr);
+            padding: 15px 0;
+            i {
+                float: right;
+                background: #008489;
+                color: #fff;
+                border-radius: 50%;
+                padding: 2px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.bokingInfos {
+    border: 1px solid #dce0e0;
+    @include float($ltr);
+}
+
+.bannerbooking {
+    background: #eee;
+    height: 130px;
+    overflow: hidden;
+    img {
+        width: 100%;
+        float: $ltr;
+    }
+}
+
+.hostdetailLeft {
+    @include float($ltr);
+    padding: 20px;
+    .checkincolom {
+        margin: 30px 0 0 0;
+    }
+}
+
+.paydetailss {
+    @include float($ltr);
+    border-top: 1px solid #dce0e0;
+    padding: 40px 0 0px 0;
+    li {
+        @include float($ltr);
+        padding: 7px 10px;
+        >span {}
+        >label {
+            float: $rtl;
+            font-weight: normal;
+        }
+        &.totls {
+            border-top: 1px solid #dce0e0;
+            margin: 30px 0 0 0;
+            padding: 20px 10px;
+            font-size: 20px;
+        }
+    }
+}
+
+.hosttext {
+    @include float($ltr);
+    font-size: 17px;
+    margin: 0 0 7px 0;
+    color: $text2;
+}
+
+.hostplacec {
+    @include float($ltr);
+    font-size: 25px;
+    margin: 3px 0 10px 0;
+}
+
+.roomtype {
+    @include float($ltr);
+    color: $text2;
+    font-size: 15px;
+}
+
+app-payment {
+    form {
+        @include float($ltr);
+    }
+    .form-group {
+        @include float($ltr);
+        label>span,
+        strong {
+            margin: 0 0px 5px 0;
+            float: left;
+            width: 100%;
+        }
+    }
+    .paymentpage {
+        margin-top: 40px;
+        .itineraryrooms {
+            border: 1px solid #ddd;
+            .figureProduct {
+                height: 307px;
+            }
+        }
+    }
+    .paydescBottom {
+        @include float($ltr);
+        padding: 0 20px 20px 20px;
+    }
+}

@@ -1,0 +1,4 @@
+<app-productsingle *ngFor="let product of product" (producthover)="myproducthover($event)" (wishlistProduct)="mywishlistProduct($event)" (producthoverout)="myproducthoverout($event)" productName="{{product.Description.Title}}" rating="{{product.ProductRating}}"
+    ratingCount="{{product.ProductRatingCount}}" productImg="{{product.Photos[0].filename}}" productId="{{product._id}}" activeCurrency='{{activeCurrency}}' productPrice=" {{product.Pricing.Baseprice}} ">
+</app-productsingle>
+<span *ngIf='searchCountry' (click)="showall()" class="shoall">Show all ({{productLenght}}) > </span>

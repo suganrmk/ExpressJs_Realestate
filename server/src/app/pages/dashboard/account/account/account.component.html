@@ -1,0 +1,61 @@
+<!--//////////////////////////////////////////////////account body starts///////////////////-->
+<section class="dashboardbg">
+    <div class="dashbrdbody">
+        <div class="dashboardcontainer">
+            <div class="row">
+                <div class="col-sm-3 col-xs-12">
+
+                    <!--leftpannel-->
+                    <div class="leftpanels">
+
+
+                        <ul class="paylisttext">
+                            <li routerLinkActive="active"><a routerLink="/user/account/notification">Notifications</a></li>
+                            <li routerLinkActive="active"><a routerLink="/user/account/payout">Payout Preferences</a></li>
+                            <li routerLinkActive="active"><a routerLink="/user/account/transcation">Transaction History</a></li>
+                            <li routerLinkActive="active"><a routerLink="/user/account/security">Security</a></li>
+                            <li routerLinkActive="active"><a routerLink="/user/account/setting">Setting</a></li>
+
+                        </ul>
+                    </div>
+                    <!--leftpannel-->
+
+
+                    <!--leftpannel-->
+                    <div class="leftpanels photsect">
+                        <div class="tophldr">
+                            <img [src]="userdata.photoUrl">
+                        </div>
+
+                        <div class="centeringprofl">
+                            <figure class="figuredivs">
+                                <img [src]="userdata.photoUrl">
+                            </figure>
+                            <span class="clintitle">{{userdata.firstName}}</span>
+                            <div class="col-xs-12">
+                                <a class="borderbtn vewprobtn" routerLink="/profile/{{userdata._id}}">View Profile</a></div>
+                        </div>
+
+                    </div>
+                    <!--leftpannel-->
+
+                    <!--leftpannel-->
+                    <!-- <a class="btn Savebd" href="#">Save Changes</a>
+                    <a class="borderbtn Discardbtn" href="#">Discard Changes</a> -->
+
+                    <!--leftpannel-->
+
+
+                </div>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="rigthdivsec">
+
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--//////////////////////////////////////////////////account body ends///////////////////-->

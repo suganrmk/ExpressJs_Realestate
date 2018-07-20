@@ -1,0 +1,296 @@
+<!--//////////////////////////////////////////////////banner____ satrats///////////////////-->
+
+<section>
+    <div class="id-home homebanner">
+        <!--//////////////////sliders and videos///////////////////-->
+        <div class="sliderholder">
+            <!-- <vg-player>
+<video #media [vgMedia]="media" id="singleVideo" autoplay="true" preload="auto" controls>
+<source src="assets/videos/banner.mp4" type="video/mp4">
+<source src="assets/videos/banner.webm" type="video/webm">
+</video>
+</vg-player> -->
+
+            <img src="http://localhost:4000/banner.jpg" />
+        </div>
+        <!--////////////////////slder videos____ Ends///////////////////-->
+        <!--////////////////searchbar and content satrts///////////////////-->
+        <div class="slidercontenrt">
+            <div class="bannertxt-holder">
+                <div class="bannercontainer">
+                    <h2 class="mainhead">Book unique homes and experiences<br> all over the world</h2>
+                    <h3 class="subhead hide">Rent unique places to stay</h3>
+                </div>
+            </div>
+            <div class="searchbar">
+                <div class="container">
+                    <form (ngSubmit)="onSearchProduct(searchForm);" #searchForm="ngForm" class="searchbarform">
+                        <ul class="floamlist">
+                            <li>
+                                <input type="text" [(ngModel)]="searchobj.City" #City="ngModel" (setAddress)="getAddress($event)" (FormatAddress)="getFormattedAddress($event)" class="form-control" name="City" id="City" required [options]='options' (city)='city=$event' (state)='state=$event'
+                                    (district)='district=$event' (country)='country=$event' (postal_code)='postal_code=$event' (lat)='lat=$event' (lng)='lng=$event' (adr_address)='adr_address=$event' (name)='name=$event' (place_id)='place_id=$event' (types)='types=$event'
+                                    (url)='url=$event' (utc_offset)='utc_offset=$event' (vicinity)='vicinity=$event' (photos)='photos=$event' (CountryCodes)='CountryCodes=$event' id="autocomplete" angularGooglePlace/></li>
+
+                            <li><input class="submitbtn" value="submit" type="submit"></li>
+                        </ul>
+                    </form>
+                    <!--////////////////resp[onsive popup///////////////////-->
+                    <button type="button" class="nobtn hide" data-toggle="modal" data-target="#myModal">
+    <form class="searchbarform reponisuve-menu">
+    <ul class="floamlist">
+    <li class="wd45"><input class="searchtext" placeholder="Where do you want to go?" type="text"></li>
+    <li><input class="submitbtn" value="submit" type="submit"></li>
+    </ul>
+    </form>
+    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Search</h4>
+                                </div>
+                                <div class="modal-body">
+
+
+
+
+                                    <form class="isidemu">
+                                        <ul class="pouppopup">
+                                            <li><input class="searchtext" placeholder="Where do you want to go?" type="text"></li>
+                                            <li><input class="checin" placeholder="Check in" type="text"></li>
+                                            <li><input class="checour" placeholder="Check out" type="text"></li>
+                                            <li>
+                                                <select class="guet">
+            <optgroup  label="guest">
+                <option>1 Guest</option>
+                <option>2 Guest</option>	
+                <option>3 Guest</option>	
+            </optgroup>
+            </select>
+                                            </li>
+
+
+                                        </ul>
+                                    </form>
+
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--////////////////resp[onsive popup End///////////////////-->
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <!--////////////searchbar and content Ends///////////////////-->
+
+
+    </div>
+</section>
+<!--//////////////////////////////////////////////////banner Ends///////////////////-->
+
+
+
+<section>
+
+    <div class="Homecontainer">
+        <div class="productarrays">
+            <h4 class="fearuteTitle">Experiences </h4>
+            <h4 class="_1rrv676">Make yourself at home with these experienced hosts</h4>
+            <app-productarray *ngIf="products" [product]="products"></app-productarray>
+        </div>
+        <div class="productarrays">
+            <h4 class="fearuteTitle">Homes in India </h4>
+            <h4 class="_1rrv676">Make yourself at home with these experienced hosts</h4>
+            <app-productarray *ngIf="products" searchCountry="India" [product]="products"></app-productarray>
+
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="Homecontainer">
+        <ul class="prefooterarea">
+            <li>
+                <img src="assets/images/prefooter1.png">
+                <div class="rightcare">
+                    <h4>24/7 customer support</h4>
+                    <p>If you need help while traveling or hosting, contact us at our toll free number: 000 800 4405 103</p>
+                </div>
+            </li>
+
+            <li>
+                <img src="assets/images/prefooter2.png">
+                <div class="rightcare">
+                    <h4>₹6,00,00,000 host guarantee</h4>
+                    <p>Hosts are protected against property damages for up to ₹6,00,00,000. </p>
+                </div>
+            </li>
+
+
+            <li>
+                <img src="assets/images/prefooter3.png">
+                <div class="rightcare">
+                    <h4>Verified ID</h4>
+                    <p>We aim to build a trusted community by giving you more info when you're deciding who to host or stay with.</p>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</section>
+
+
+
+
+
+<!--//////////////////////////////////////////////////explore the world starts///////////////////-->
+
+<section>
+    <div class="exploretheworldsection hide">
+        <div class="home-container">
+            <h2 class="exploretheworldtext">Explore the world</h2>
+            <span class="explorethe-subtext">See where people are traveling, all around the world. </span>
+
+            <ul class="exporetxt">
+                <li class="col-sm-8 col-xs-12">
+                    <a href="#">
+                        <figure><img alt="Newyork" title="Newyork" src="assets/images/1.jpg"></figure>
+                        <span>New York</span>
+                    </a>
+                </li>
+
+
+                <li class="col-sm-4 col-xs-12">
+                    <a href="#">
+                        <figure><img alt="China" title="China" src="assets/images/2.jpg"></figure>
+                        <span>China</span>
+                    </a>
+                </li>
+
+
+                <li class="col-sm-4 col-xs-12">
+                    <a href="#">
+                        <figure><img alt="Australia" title="Australia" src="assets/images/3.jpg"></figure>
+                        <span>Australia</span>
+                    </a>
+                </li>
+
+
+
+                <li class="col-sm-4 col-xs-12">
+                    <a href="#">
+                        <figure><img alt="Barcelona" title="Barcelona" src="assets/images/4.jpg"></figure>
+                        <span>Barcelona</span>
+                    </a>
+                </li>
+
+
+                <li class="col-sm-4 col-xs-12">
+                    <a href="#">
+                        <figure><img alt="Hawaii" title="Hawaii" src="assets/images/3.jpg"></figure>
+                        <span>Get some sun in Hawaii</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<!--//////////////////////////////////////////////////explore the world End///////////////////-->
+
+
+<!--//////////////////////////////////////////////////prefootersection starts///////////////////-->
+<section>
+    <div class="prefooter hide">
+        <div class="home-container">
+            <ul class="prefooterli">
+                <li class="col-md-4">
+                    <a href="#">
+                        <figure><img alt="guest" title="guest" src="assets/images/6.jpg"></figure>
+                        <div class="content-texrt">
+                            <h3>Check with Guest</h3>
+
+                            <ul class="abstext">
+                                <li><i class="fa fa-long-arrow-right"></i>Get More friends for refreshing</li>
+                                <li><i class="fa fa-long-arrow-right"></i>More Relax and Cool to enjoy</li>
+                                <li><i class="fa fa-long-arrow-right"></i>Worth for your Money</li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="col-md-4">
+                    <a href="#">
+                        <figure><img alt="host" title="host" src="assets/images/7.jpg"></figure>
+                        <div class="content-texrt">
+                            <h3>Check With Host</h3>
+
+                            <ul class="abstext">
+                                <li> <i class="fa fa-long-arrow-right"></i> Get More friends for refreshing</li>
+                                <li><i class="fa fa-long-arrow-right"></i> More Relax and Cool to enjoy</li>
+                                <li><i class="fa fa-long-arrow-right"></i> Worth for your Money</li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="col-md-4">
+                    <a href="#">
+                        <figure><img alt="stay" title="stay" src="assets/images/8.jpg"></figure>
+                        <div class="content-texrt">
+                            <h3>Rate Your Stay</h3>
+
+                            <ul class="abstext">
+                                <li><i class="fa fa-long-arrow-right"></i> Get More friends for refreshing</li>
+                                <li><i class="fa fa-long-arrow-right"></i> More Relax and Cool to enjoy</li>
+                                <li><i class="fa fa-long-arrow-right"></i> Worth for your Money</li>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</section>
+
+<!--//////////////////////////////////////////////////prefootersection End///////////////////-->
+
+
+<p-carousel numVisible="1" easing="easeOutStrong" circular="circular" autoplayInterval="8000" *ngIf="bannerImg" [value]="bannerImg">
+    <ng-template let-slider pTemplate="item">
+        <div class="ui-grid ui-grid-responsive">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12 relative">
+
+                    <img src="http://localhost:4000/{{slider.sliderImage.filename}}">
+                    <div class="bannerContent">
+                        <h1>{{slider.subtitle}}</h1>
+                        <h2>{{slider.title}}</h2>
+                        <br>
+                        <button [routerLink]="['/productlist']" class="btn btn-buy">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </ng-template>
+</p-carousel>

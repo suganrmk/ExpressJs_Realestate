@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="col-md-6">
+        <div class="listcentering">
+            <h2>Hi, Sugan Sudhan! Let’s get <br> started listing your space.</h2>
+            <br><br>
+            <span>STEP 1</span>
+            <h4>What kind of place do you have?</h4>
+            <br>
+
+
+            <form (ngSubmit)="productForm.valid && onSubmitProduct(productForm , valid);" #productForm="ngForm">
+                <div class="form-group hostdrop">
+                    <p-dropdown [options]="roomtype" [(ngModel)]="products.Listing.RoomType" #RoomType="ngModel" name="RoomType" id="RoomType" required></p-dropdown>
+                    <p-dropdown [options]="accommodates" [(ngModel)]="products.Listing.Accommodates" #Accommodates="ngModel" name="Accommodates" id="Accommodates" required></p-dropdown>
+                </div>
+                <div class="form-group addressInput">
+                    <input type="text" [(ngModel)]="products.Location" #Location="ngModel" class="hide" name="Location" id="Location" required>
+                    <input type="text" [(ngModel)]="products.City" #City="ngModel" (FormatAddress)="getFormattedAddress($event)" class="form-control" name="City" id="City" required [options]='options' (setAddress)="getAddress($event)" (street_number)='street_number=$event'
+                        (street)='street=$event' (city)='city=$event' (state)='state=$event' (district)='district=$event' (country)='country=$event' (postal_code)='postal_code=$event' (lat)='lat=$event' (lng)='lng=$event' (adr_address)='adr_address=$event'
+                        (name)='name=$event' (place_id)='place_id=$event' (types)='types=$event' (url)='url=$event' (utc_offset)='utc_offset=$event' (vicinity)='vicinity=$event' (photos)='photos=$event' (CountryCodes)='CountryCodes=$event' id="autocomplete"
+                        angularGooglePlace/>
+                </div>
+                <span *ngIf="!productForm.valid" class="btn btn-clone disabled">Save & Continue</span>
+                <button *ngIf="productForm.valid" [disabled]="!productForm.valid" class="btn btn-clone">Save & Continue</button>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="col-md-6">
+        <img src="assets/images/host.png" />
+    </div>
+</div>

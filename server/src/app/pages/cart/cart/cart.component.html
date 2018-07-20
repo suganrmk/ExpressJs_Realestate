@@ -1,0 +1,196 @@
+<div *ngIf="product" class="container">
+    <div class="col-md-7">
+        <div class="cartDetail">
+            <span class="cartheadline">1.About Your Trip</span>
+            <div class="form-group selectcontrol">
+                <label>Who`s Coming</label>
+                <!-- <select [(ngModel)]="booking.guest" name="guest" class="form-control">
+                    <option value="1">1</option>
+                </select> -->
+
+
+                <p-dropdown [options]="NoofGuest" placeholder="No of guests" required [(ngModel)]="booking.guest" name="guest" #guest="ngModel" id="guest" required name="guest" data-stripe="exp_month"></p-dropdown>
+                <div *ngIf="guest.touched && guest.errors">
+                    This is required
+                </div>
+            </div>
+            <div class="form-group textareacontrol">
+                <label> Say hello to your host and tell them why you’re coming:</label>
+                <textarea [(ngModel)]="messages.message" name="message" #message="ngModel" id="message" name="message" required class="form-control"></textarea>
+                <div *ngIf="message.touched && message.errors">
+                    This is required
+                </div>
+            </div>
+            <div class="houserule">
+                <h2>{{product.host.common.firstName}} House Rules</h2>
+                <ul class="ruleslists">
+                    <li *ngFor="let rules of houserules">{{rules}} <i class="fa fa-check"></i></li>
+                </ul>
+            </div>
+
+            <span class="cartheadline">2.Payment</span>
+            <p class="paysubtitle">You’ll only be charged if your request is accepted by the host.They’ll have 24 hours to accept or decline.</p>
+
+            <div class="paymentoption">
+                <span class="credit">Credit Card</span>
+
+
+                <form #stripForm="ngForm" action="" method="POST" id="payment-form" (ngSubmit)="stripForm.form.valid && !guest.errors && !message.errors && getToken()">
+                    <div class="stripform">
+                        <span class="payment-message">{{message}}</span>
+                        <div *ngIf="stripForm.submitted && !guest.errors || !message.errors">
+                            Above field are required
+                        </div>
+                        <div class="form-group withsvv">
+                            <input [(ngModel)]="cardNumber" #cardNumbers="ngModel" required pattern="^[0-9]+$" placeholder="valid card number" name="card-number" type="text" size="20" data-stripe="number" class="form-control cn" />
+                            <input [(ngModel)]="cvc" #cvcs="ngModel" pattern="^[0-9]+$" required class="form-control" placeholder="CVV" name="cvc" type="text" size="4" data-stripe="cvc" class="form-control cvv">
+                            <div *ngIf="stripForm.submitted && cardNumbers.errors" [ngClass]="'error'">
+                                <div *ngIf="cardNumbers.errors.pattern" class="help-block">Credit number not valid. </div>
+                                <div *ngIf=" cardNumbers.errors.required" class="help-block">Credit card number required.</div>
+                            </div>
+                            <div *ngIf="stripForm.submitted && cvcs.errors" [ngClass]="'error'">
+                                <div *ngIf="cvcs.errors.pattern" class="help-block">CVV not valid. </div>
+                                <div *ngIf=" cvcs.errors.required" class="help-block">CVV required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group expires">
+                            <label>Expires</label>
+                            <p-dropdown [options]="expireMonth" placeholder="MM" [(ngModel)]="expiryMonth" #expirymonths="ngModel" id="expirymonths" required name="expirymonths" data-stripe="exp_month"></p-dropdown>
+
+                            <p-dropdown [options]="expireyear" [(ngModel)]="expiryYear" #expiryYears="ngModel" required placeholder="year" name="expiry-year" data-stripe="exp_year"></p-dropdown>
+
+                            <!-- <select class="form-control" [(ngModel)]="expiryYear" #expiryYears="ngModel" required placeholder="year" name="expiry-year" data-stripe="exp_year">
+                                    <option>2020</option>
+                                    <option>2021</option>
+                                    <option>2022</option>
+                                    <option>2023</option>
+                                    <option>2024</option>
+                            </select> -->
+
+                            <div *ngIf="stripForm.submitted && expirymonths.errors" [ngClass]="'error'">
+                                <div *ngIf="expirymonths.errors.required" class="help-block">Month required.</div>
+                            </div>
+                            <div *ngIf="stripForm.submitted && expiryYears.errors" [ngClass]="'error'">
+                                <div *ngIf="expiryYears.errors.required" class="help-block">Year required.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <br>
+                            <br>
+
+                            <button class="btn btn-primary">Pay Now</button>
+                        </div>
+                    </div>
+                </form>
+                <span class="credit hide">Paypal</span>
+                <div class="paypalcontainer hide">
+                    <label>Payment Currency</label>
+                    <select class="form-control">
+                        <option> choose Currency</option>
+                    </select>
+                    <p>Log into PayPal. You will be able to review your request before it is final.</p>
+                    <button (click)="getToken()" class="btn btn-primary">Pay Now</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="bokingInfos">
+            <div class="bannerbooking">
+                <img class="img-responsive" *ngIf="booking.bannerImage" src="http://localhost:4000/{{booking.bannerImage}}" />
+
+            </div>
+            <div class="hostdetailLeft">
+                <span class="hosttext">Hosted by {{product.host.common.firstName}} </span>
+                <span class="hostplacec">{{product.Description.Title}}</span>
+                <span class="roomtype">{{product.RoomType}}</span>
+                <span class="roomtype">{{product.City}}</span>
+
+                <div class="row checkincolom">
+                    <div class="col-md-6">
+                        <span>Check in</span>
+                        <label>{{booking.bookedfrom | date}}</label>
+                    </div>
+                    <div class="col-md-6">
+                        <span>Check out</span>
+                        <label>{{booking.bookedto | date}}</label>
+                    </div>
+                </div>
+
+                <ul class="paydetailss">
+                    <li>
+                        <span>{{product.Pricing.currency}} {{product.Pricing.Baseprice}} x {{CalculatedDate}} nights</span>
+                        <label>{{product.Pricing.currency}} {{booking.pricing.calculatedprice}}</label>
+                    </li>
+                    <li>
+                        <span>Cleaning Price</span>
+                        <label>{{product.Pricing.currency}} {{product.Pricing.Additionalprice.cleaning}}</label>
+                    </li>
+
+                    <li>
+                        <span>Service Price</span>
+                        <label>{{product.Pricing.currency}} {{serviceFees}}</label>
+                    </li>
+                    <li class="totls">
+                        <span>Total</span>
+                        <label>{{product.Pricing.currency}} {{booking.pricing.totalprice}}</label>
+                    </li>
+                </ul>
+                <span class="policy">Cancellation policy: Moderate</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container hide">
+    <div class="cartpage">
+        <div class="col-md-6">
+            <figure>
+                <img class="img-responsive" *ngIf="booking.bannerImage" src="http://localhost:4000/{{booking.bannerImage}}" />
+            </figure>
+        </div>
+        <div class="col-md-6">
+            <ul *ngIf="booking.pricing" class="checkout">
+                <li>
+                    <label> Booking Number</label>
+                    <span>{{booking.bookingId}}</span>
+                </li>
+                <li>
+                    <label> Check In</label>
+                    <span>{{booking.bookedfrom | date}}</span>
+                </li>
+
+                <li>
+                    <label> Check Out</label>
+                    <span>{{booking.bookedto | date}}</span>
+                </li>
+                <li>
+                    <label> Guest</label>
+                    <span>{{booking.guest}}</span>
+                </li>
+                <li>
+                    <label> Price Per Night</label>
+                    <span>{{booking.price}}</span>
+                </li>
+                <li>
+                    <label> Service Fees</label>
+                    <span>{{booking.pricing.serviceprice}}</span>
+                </li>
+                <li>
+                    <label> Total</label>
+                    <span>{{booking.pricing.totalprice}}</span>
+                </li>
+                <form (ngSubmit)="checkout(checkoutForm);" #checkoutForm="ngForm">
+                    <div class="form-group addressInput">
+                        <textarea required [(ngModel)]="messages.message" #message="ngModel" name="message" id="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Submit </button>
+                </form>
+            </ul>
+        </div>
+    </div>
+</div>

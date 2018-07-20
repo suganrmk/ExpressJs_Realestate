@@ -1,0 +1,214 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Payout Methods</div>
+    <div class="panel-body pad0">
+        <!-- (ngSubmit)="onSubmitForm(payoutformdata , messageContent);" -->
+
+        <form *ngIf="payoutform" #payoutformdata="ngForm" (ngSubmit)="payoutformdata.form.valid && payoutaddress(payoutformdata)" class="payoutform">
+            <div class="form-group">
+                <label>Country</label>
+
+                <p-dropdown required [(ngModel)]="payaddress.country" #countries="ngModel" name="country" id="country" [options]="countrylist" [filter]="true" filterBy="label"></p-dropdown>
+                <div *ngIf="payoutformdata.submitted && countries.errors" [ngClass]="'error'">
+                    <div *ngIf="countries.errors.required" class="help-block">Field Required </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Address Line 1</label>
+                <input required [(ngModel)]="payaddress.address1" #address1="ngModel" name="address1" id="address1" type="text" class="form-control" required />
+                <div *ngIf="payoutformdata.submitted && address1.errors" [ngClass]="'error'">
+                    <div *ngIf="address1.errors.required" class="help-block">Field Required </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Address Line 2</label>
+                <input [(ngModel)]="payaddress.address2" #address2="ngModel" name="address2" id="address2" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input required [(ngModel)]="payaddress.city" #cities="ngModel" name="cities" id="city" type="text" class="form-control" required />
+                <div *ngIf="payoutformdata.submitted && cities.errors" [ngClass]="'error'">
+                    <div *ngIf="cities.errors.required" class="help-block">Field Required </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>State / Province</label>
+                <input [(ngModel)]="payaddress.state" #state="ngModel" name="state" id="state" type="text" class="form-control" required />
+                <div *ngIf="payoutformdata.submitted && state.errors" [ngClass]="'error'">
+                    <div *ngIf="state.errors.required" class="help-block">Field Required </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>ZIP Code / Postal Code</label>
+                <input [(ngModel)]="payaddress.zip" #zip="ngModel" pattern="^[0-9]+$" name="zip" id="zip" type="text" class="form-control" required />
+
+                <div *ngIf="payoutformdata.submitted && zip.errors" [ngClass]="'error'">
+                    <div *ngIf="zip.errors.required" class="help-block">Field Required </div>
+                    <div *ngIf="zip.errors.pattern" class="help-block">zip not valid. </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary pull-right">Next</button>
+
+        </form>
+
+
+
+        <div *ngIf='payoutMethod' class="payoutMethod">
+            <p class="payoutMethodtext">Payouts for reservations are released to you the day after your guest checks in, and it takes some additional time for the money to arrive depending on your payout method.</p>
+            <p class="payoutMethodtext"> We can send money to people in United States with these payout methods. Which do you prefer?</p>
+
+            <div class="table-responsive tablecustom datedivcolor">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Processed in</th>
+                            <th>Fees</th>
+                            <th>Currency</th>
+                            <th>Details</th>
+                            <th>Add</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Paypal</td>
+                            <td>3–4 hours</td>
+                            <td>PayPal withdrawal fees</td>
+                            <td>USD</td>
+                            <td>Connect your existing PayPal account.</td>
+                            <td><button type="button" (click)="addpaymethod('paypal')" class="btn btn-primary">Add</button></td>
+                        </tr>
+                        <tr>
+                            <td>Bank Account</td>
+                            <td>5 to 7 business days</td>
+                            <td>No fees</td>
+                            <td>USD</td>
+                            <td>Add you bank details.</td>
+                            <td><button type="button" (click)="addpaymethod('bank')" class="btn btn-primary">Add</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" (click)="payoutMethod = false; payoutform = true">Back</button>
+            </div>
+
+        </div>
+
+
+
+        <form *ngIf="paypalaccount" #paypalformdata="ngForm" (ngSubmit)="paypalformdata.form.valid && savepaypalacc(paypalformdata)" class="paypalform">
+            <p> PayPal is an online payment processing service that allows you to receive payments from RentALL.To use PayPal with RentALL, you must have an existing account with PayPal.Learn more about PayPal</p>
+            <div class="form-group">
+                <label>Enter the email address associated with your existing PayPal account.</label>
+                <input [(ngModel)]="paypaldetail.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" name="email" id="email" type="email" class="form-control" required />
+                <div *ngIf="paypalformdata.submitted && email.errors" [ngClass]="'error'">
+                    <div *ngIf="email.errors.required" class="help-block">Field Required </div>
+                    <div *ngIf="email.errors.pattern" class="help-block">Email invalid </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>In what currency would you like to be paid?</label>
+                <p-dropdown required [(ngModel)]="paypaldetail.currency" #currency="ngModel" name="currency" id="currency" [options]="currencylist" [filter]="true" filterBy="label"></p-dropdown>
+                <div *ngIf="paypalformdata.submitted && currency.errors" [ngClass]="'error'">
+                    <div *ngIf="currency.errors.required" class="help-block">Field Required </div>
+                </div>
+            </div>
+            <button type="button" class="btn" (click)="payoutMethod = true; paypalaccount = false">Back</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+
+        </form>
+
+
+
+        <form *ngIf="bankaccount" #bankformdata="ngForm" (ngSubmit)="bankformdata.form.valid && savebankacc(bankformdata)" class="Bnkform">
+            <div class="form-group">
+                <label>Account holder first name.</label>
+                <input required [(ngModel)]="bankdetail.firstname" #firstname="ngModel" name="firstname" id="firstname" type="text" class="form-control" />
+                <div *ngIf="bankformdata.submitted && firstname.errors" [ngClass]="'error'">
+                    <div *ngIf="firstname.errors.required" class="help-block">Field Required </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Account holder last name</label>
+                <input required [(ngModel)]="bankdetail.lastname" #lastname="ngModel" name="lastname" id="lastname" type="text" class="form-control" />
+                <div *ngIf="bankformdata.submitted && lastname.errors" [ngClass]="'error'">
+                    <div *ngIf="lastname.errors.required" class="help-block">Field Required </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Routing number</label>
+                <input required [(ngModel)]="bankdetail.routenumber" pattern="^[0-9]+$" #routenumber="ngModel" name="routenumber" id="routenumber" type="text" class="form-control" />
+                <div *ngIf="bankformdata.submitted && routenumber.errors" [ngClass]="'error'">
+                    <div *ngIf="routenumber.errors.required" class="help-block">Field Required </div>
+                    <div *ngIf="routenumber.errors.pattern" class="help-block">routenumber not valid. </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Account number</label>
+                <input required [(ngModel)]="bankdetail.account" pattern="^[0-9]+$" #account="ngModel" name="account" id="account" type="text" class="form-control" />
+                <div *ngIf="bankformdata.submitted && account.errors" [ngClass]="'error'">
+                    <div *ngIf="account.errors.required" class="help-block">Field Required </div>
+                    <div *ngIf="account.errors.pattern" class="help-block">account Number not valid. </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Confirm account number</label>
+                <input required [(ngModel)]="bankdetail.confirmaccount" pattern="^[0-9]+$" #confirmaccount="ngModel" name="confirmaccount" id="confirmaccount" type="text" class="form-control" />
+                <div *ngIf="bankformdata.submitted && confirmaccount.errors" [ngClass]="'error'">
+                    <div *ngIf="confirmaccount.errors.required" class="help-block">Field Required </div>
+                    <div *ngIf="confirmaccount.errors.pattern" class="help-block">account Number not valid. </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>SSN last 4 digits</label>
+                <input required [(ngModel)]="bankdetail.ssn" #ssn="ngModel" pattern="^[0-9]+$" name="ssn" id="ssn" type="text" class="form-control" />
+                <div *ngIf="bankformdata.submitted && ssn.errors" [ngClass]="'error'">
+                    <div *ngIf="ssn.errors.required" class="help-block">Field Required </div>
+                    <div *ngIf="ssn.errors.pattern" class="help-block">ssn not valid. </div>
+                </div>
+            </div>
+            <button type="button" (click)="payoutMethod = true; bankaccount = false">Back</button>
+            <button type="submit" class="btn btn-primary">save</button>
+
+
+        </form>
+
+        <div *ngIf="payoutlists">
+            <div class="table-responsive tablecustom datedivcolor paoutprefrence">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Details</th>
+                            <th>Status</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="cardlist">
+                        <tr *ngFor="let card of cardlist">
+                            <td>{{card.method}}</td>
+                            <td>
+                                <span *ngIf="card.bankdetails">{{card.bankdetails.account}}</span>
+                                <span *ngIf="card.paypaldetail">{{card.paypaldetail.email}}</span>
+                            </td>
+                            <td>Ready</td>
+                            <td>
+                                <span *ngIf="!card.default">
+                                    <a (click)="updateCard(card._id)">Set Default</a>
+                                    <a (click)="deleteCard(card._id)">Remove</a>
+                               </span>
+                                <label *ngIf="card.default">Default</label>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="btnholds">
+                <button type="button" (click)="payoutform = true; payoutlists = false" class="btn btn-primary">Add payout prefernce</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,54 @@
+<div *ngIf="booking" class="dashboardcontainer">
+    <div class="col-md-7">
+        <div class="itineraryContainer">
+            <span>Reservation code: 442224. <a href=""> View Receipt</a></span>
+            <ul class="reservationlist">
+                <li>
+                    <span class="reservtile">Check In</span>
+                    <div class="reservRight">
+                        <span class="newdates">{{booking.bookedfrom}}</span>
+
+                        <div class="checkoutdiv">
+                            <span class="checktitle">Check Out</span>
+                            <span class="checoutdate">{{booking.bookedto}}</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <span class="reservtile">Address</span>
+                    <div class="reservRight">
+                        <p>{{booking.productId.Location.city}}, {{booking.productId.Location.state}} , {{booking.productId.Location.country}} </p>
+                        <a [routerLink]="['/product', booking.productId._id]">View Listing</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="reservtile">Host</span>
+                    <div class="reservRight">
+                        <p>{{booking.producthost.common.firstName}}</p>
+                        <a [routerLink]="['/user/inbox/', bookingId]">Message Host</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="reservtile">Billing</span>
+                    <div class="reservRight">
+                        <!-- <p>1 night</p> -->
+                        <span>{{booking.pricing.currency}} {{booking.pricing.totalprice}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="itineraryrooms">
+            <div class="figureProduct">
+                <img src="http://localhost:4000/{{booking.productId.Photos[0].filename}}" />
+            </div>
+            <h3 class="prodTils">{{booking.productId.Description.Title}}</h3>
+
+            <span class="prodaddress">{{booking.productId.Location.city}}, {{booking.productId.Location.state}} , {{booking.productId.Location.country}} </span>
+        </div>
+
+    </div>
+
+</div>
