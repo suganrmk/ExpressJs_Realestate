@@ -1,0 +1,15 @@
+﻿{
+    "connectionString": "mongodb://localhost:27017/mern-todo-app",
+    "apiUrl": "http://localhost:4000",
+    "secret": "hirespacetravelapp",
+    "exceptionPath": [
+        "/users/authenticate",
+        "/users/register",
+        "/users/auth/google",
+        "/route/search/",
+        "/route/products/",
+        "/route/homeSliders",
+        "/route/upload",
+        "/"
+    ]
+}
